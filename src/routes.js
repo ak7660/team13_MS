@@ -20,63 +20,63 @@ import {
 
 var dashRoutes = [
   {
-    path: "/dashboard",
-    name: "Dashboard",
+    path: "/homepage",  // homepgae
+    name: "Homepage",
     icon: <HomeIcon color="inherit" />,
     component: Dashboard,
     layout: "/admin",
   },
   {
-    path: "/events-calendar",
+    path: "/events-calendar",  // events calender page - redirect to sign up for and for check rsvp events
     name: "Events Calendar",
     icon: <HomeIcon color="inherit" />,
     component: Dashboard,
     layout: "/admin",
   },
+  // {
+  //   path: "/tables",
+  //   name: "Tables",
+  //   icon: <StatsIcon color="inherit" />,
+  //   component: Tables,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/billing",
+  //   name: "Billing",
+  //   icon: <CreditIcon color="inherit" />,
+  //   component: Billing,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/rtl-support-page",
+  //   name: "RTL",
+  //   icon: <SupportIcon color="inherit" />,
+  //   component: RTLPage,
+  //   layout: "/rtl",
+  // },
   {
-    path: "/tables",
-    name: "Tables",
-    icon: <StatsIcon color="inherit" />,
-    component: Tables,
-    layout: "/admin",
-  },
-  {
-    path: "/billing",
-    name: "Billing",
-    icon: <CreditIcon color="inherit" />,
-    component: Billing,
-    layout: "/admin",
-  },
-  {
-    path: "/rtl-support-page",
-    name: "RTL",
-    icon: <SupportIcon color="inherit" />,
-    component: RTLPage,
-    layout: "/rtl",
-  },
-  {
-    name: "ACCOUNT PAGES",
+    name: "Admin Options",
     category: "account",
     state: "pageCollapse",
     views: [
       {
-        path: "/profile",
-        name: "Profile",
+        path: "/add-and-manage-events",  // add and manage events
+        name: "Add & Manage Events",
         icon: <PersonIcon color="inherit" />,
         secondaryNavbar: true,
         component: Profile,
         layout: "/admin",
       },
       {
-        path: "/signin",
-        name: "Sign In",
+        path: "/task-delegation-system",  // task delegation
+        name: "Task Delegation System",s
         icon: <DocumentIcon color="inherit" />,
         component: SignIn,
         layout: "/auth",
       },
       {
-        path: "/signup",
-        name: "Sign Up",
+        path: "/data-analytics-dashboard",  // data analytics dashboard
+        name: "Data Analytics Dashboard",
         icon: <RocketIcon color="inherit" />,
         secondaryNavbar: true,
         component: SignUp,
