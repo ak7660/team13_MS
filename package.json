@@ -14,6 +14,7 @@
 		"@fontsource/open-sans": "^4.5.0",
 		"@fontsource/raleway": "^4.5.0",
 		"@fontsource/roboto": "^4.5.8",
+		"@google-cloud/vertexai": "^1.5.0",
 		"ajv": "^8.17.1",
 		"apexcharts": "^3.27.3",
 		"classnames": "2.3.1",
