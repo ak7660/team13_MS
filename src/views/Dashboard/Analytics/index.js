@@ -1,18 +1,35 @@
 import {
-    Flex,
-    Grid,
-    Image,
-    SimpleGrid,
-    useColorModeValue,
-  } from "@chakra-ui/react";
+  Flex,
+  Grid,
+  Image,
+  SimpleGrid,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import React from "react";
+import Projects from "../Dashboard/components/Projects";
+import OrdersOverview from "../Dashboard/components/OrdersOverview";
+import { dashboardTableData, timelineData } from "variables/general";
+import EventCard from "./components/EventCard";
+import MiniStatistics from "../Dashboard/components/MiniStatistics";
+import { WalletIcon } from "components/Icons/Icons";
+import EventSatisfaction from "./components/EventSatisfaction";
+import LineChart from "components/Charts/LineChart";
 
 const Analytics = () => {
   return (
     <div>
       <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
-        Hello World
-        {/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
+        <EventCard
+          title={"Projects"}
+          amount={30}
+          captions={["Companies", "Members", "Budget", "Completion"]}
+          data={dashboardTableData}
+        />
+        <EventSatisfaction
+          title={"Sales Overview"}
+          chart={<LineChart />}
+        />
+        {/* <Simple columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
           <MiniStatistics
             title={"Today's Moneys"}
             amount={"$53,000"}
@@ -83,7 +100,8 @@ const Analytics = () => {
             chart={<LineChart />}
           />
         </Grid>
-        <Grid
+         */}
+        {/* <Grid
           templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
           templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
           gap="24px"
