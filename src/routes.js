@@ -69,7 +69,7 @@ var dashRoutes = [
       },
       {
         path: "/task-delegation-system",  // task delegation
-        name: "Task Delegation System",s
+        name: "Task Delegation System",
         icon: <DocumentIcon color="inherit" />,
         component: SignIn,
         layout: "/auth",
