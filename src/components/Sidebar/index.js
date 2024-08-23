@@ -48,7 +48,7 @@ function Sidebar(props) {
           borderRadius={sidebarRadius}
         >
           <SidebarContent routes={routes}
-        logoText={"PURITY UI DASHBOARD"}
+        logoText={"ZUBIN FOUNDATION"}
         display="none"
         sidebarVariant={sidebarVariant}
         />
