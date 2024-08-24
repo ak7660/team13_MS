@@ -89,7 +89,7 @@ export default function Dashboard() {
 
       <SimpleGrid columns={2} gap={20}>
         <Box>
-          <Text fontSize='xx-large' color='black.100' fontWeight='bold' marginTop={10}>Trending</Text>
+          <Text fontSize='xx-large' color='black.100' fontWeight='bold' marginTop={10}>Trending events</Text>
 
           <Grid
             templateColumns={{ sm: '1fr', md: "1fr", lg: "1fr" }}
@@ -121,7 +121,7 @@ export default function Dashboard() {
         </Box>
 
         <Box>
-          <Text fontSize='xx-large' color='black.100' fontWeight='bold' marginTop={10}>Minority</Text>
+          <Text fontSize='xx-large' color='black.100' fontWeight='bold' marginTop={10}>Embracing Diversity</Text>
 
           <Grid
             templateColumns={{ sm: '1fr', md: "1fr", lg: "1fr" }}
