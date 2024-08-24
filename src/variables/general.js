@@ -332,48 +332,6 @@ export const eventsData =
   {
     eventId: "axym1283hsnausXX",
     eventName: "Diwali Night 2024",
-    eventDescription: `Diwali, also known as Deepavali, is one of the most important and widely celebrated Hindu festivals. It is known as the "Festival of Lights" and signifies the victory of light over darkness, good over evil, and knowledge over ignorance.       During Diwali, homes, temples, and public spaces are decorated with lights, diyas (oil lamps), candles, and colorful rangoli patterns. People clean and decorate their homes, wear new clothes, exchange gifts, and prepare special sweets and dishes.       One of the central themes of Diwali is the return of Lord Rama to Ayodhya after defeating the demon king Ravana, as depicted in the epic Ramayana. In some regions, Diwali also marks the worship of Goddess Lakshmi, the goddess of wealth and prosperity.       Fireworks are a significant part of Diwali celebrations, symbolizing the bursting of negativity and the welcoming of a new beginning. Families come together to pray, light fireworks, and share meals during this festive time.       Overall, Diwali is a time of joy, togetherness, and spiritual renewal, where people seek blessings for a prosperous and harmonious year ahead.`,
-    dateTimeStart: "2024-10-30 18:00",
-    dateTimeEnd: "2024-10-30 22:00",
-    numOfSessions: "1",
-    numOfParticipant: 39,
-    quotaParticipant: 40,
-    location: "Unit 5F, High Fashion Centre, No. 1 Kwai Hei Street, Kwai Chung, Hong Kong",
-    requiredTask: [
-    {
-      task: "Setup",
-      startTime: "2024-10-30 18:00",
-      endTime: "2024-10-30 19:00",
-      volunteer: 3,
-      quotaVolunteer: 5
-    },
-    {
-      task: "Food Service",
-      startTime: "2024-10-30 19:00",
-      endTime: "2024-10-30 20:00",
-      volunteer: 3,
-      quotaVolunteer: 7
-    },
-    {
-      task: "Registration",
-      startTime: "2024-10-30 20:00",
-      endTime: "2024-10-30 21:00",
-      volunteer: 3,
-      quotaVolunteer: 3
-    },
-    {
-      task: "Cleanup",
-      startTime: "2024-10-30 21:00",
-      endTime: "2024-10-30 22:00",
-      volunteer: 9,
-      quotaVolunteer: 15
-    }
-    ],
-    trainingMaterials: ["https://www.youtube.com/watch?v=I-XjdcpfXoI"]
-  },
-  {
-    eventId: "axym1283hsnausXX",
-    eventName: "Diwali Night 2024",
     eventDescription: "Description of the Diwali event...",
     dateTimeStart: "2024-10-30 18:00",
     dateTimeEnd: "2024-10-30 22:00",
@@ -415,8 +373,8 @@ export const eventsData =
   },
   {
     eventId: "event2ID",
-    eventName: "Black History Month Celebration",
-    eventDescription: "Description of the Black History Month event...",
+    eventName: "Eid Mubarak 2025",
+    eventDescription: "Description of the Eid Mubarak event...",
     dateTimeStart: "2024-02-01 17:00",
     dateTimeEnd: "2024-02-01 21:00",
     numOfSessions: "1",
@@ -457,8 +415,8 @@ export const eventsData =
   },
   {
     eventId: "event3ID",
-    eventName: "Pride Parade",
-    eventDescription: "Description of the Pride Parade event...",
+    eventName: "Chai Tea Making Workshop",
+    eventDescription: "Description of the Chai Tea event...",
     dateTimeStart: "2024-06-30 12:00",
     dateTimeEnd: "2024-06-30 16:00",
     numOfSessions: "1",
