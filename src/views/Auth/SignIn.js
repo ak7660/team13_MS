@@ -12,14 +12,20 @@ import {
   Switch,
   Text,
   useColorModeValue,
+  Select,
+  useRadio,
+  useRadioGroup,
+  HStack
 } from "@chakra-ui/react";
 // Assets
 import signInImage from "assets/img/SignInImage2.png";
 import { Link as RouterLink} from "react-router-dom/cjs/react-router-dom";
 import {auth} from "../../config/firebaseConfig"
 import { signInWithEmailAndPassword } from "firebase/auth";
+import {useHistory} from 'react-router-dom'
 
 function SignIn() {
+  const history = useHistory()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -33,12 +39,13 @@ function SignIn() {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(userCredential);
+      history.push('/dashboard')
       // If you need to set user properties, define the function here or remove this comment
     })
     .catch((error) => {
       console.log(error);
       setError(error.message); // Set error message
-    });
+    })
 };
   return (
     <Flex position='relative' mb='40px'>
@@ -63,6 +70,8 @@ function SignIn() {
             borderRadius="15px"
             border="3px solid"
             borderColor="#FDA503">
+            <Example/>
+
             <Heading color={titleColor} fontSize='32px' mb='10px'>
               Welcome Back
             </Heading>
@@ -168,6 +177,64 @@ function SignIn() {
         </Box>
       </Flex>
     </Flex>
+  );
+}
+
+function RadioCard(props) {
+  const { getInputProps, getCheckboxProps } = useRadio(props);
+  const input = getInputProps();
+  const checkbox = getCheckboxProps();
+
+  return (
+    <Box as='label'>
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor='pointer'
+        borderWidth='1px'
+        borderRadius='md'
+        boxShadow='md'
+        _checked={{
+          bg: "#FDA503",
+          color: 'white',
+          borderColor: 'teal.600',
+        }}
+        _focus={{
+          boxShadow: 'outline',
+        }}
+        px={5}
+        py={3}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
+function Example() {
+  const bgIcons = useColorModeValue("#FDA503", "rgba(255, 255, 255, 0.5)");
+  const options = ['Volunteer', 'Participant'];
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'framework',
+    defaultValue: 'react',
+    onChange: console.log,
+  });
+  const group = getRootProps();
+
+  return (
+    <HStack {...group}  spacing='15px' justify='center' mb='22px'>
+      {options.map((value) => {
+        const radio = getRadioProps({ value });
+        return (
+          <RadioCard key={value} {...radio}
+          justify='center'
+          align='center'
+          borderRadius='15px'
+          >
+            {value}
+          </RadioCard>
+        );
+      })}
+    </HStack>
   );
 }
 
