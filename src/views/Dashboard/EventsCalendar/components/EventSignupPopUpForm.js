@@ -14,9 +14,10 @@ import {
     Text,
     useColorModeValue,
     Flex,
+    Image,
   } from "@chakra-ui/react";
   import React from "react";
-import background from "../../../../assets/img/modal.jpg"
+import relevantImage from "../../../../assets/img/eid.jpg";
 
 const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedTasks, handleSlotChange, handleTaskChange, handleSubmit }) => {
     const textColor = useColorModeValue("gray.800", "white");
@@ -33,22 +34,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
         <ModalContent 
             p={6} 
             maxW="120vh" 
-
-            position="relative" // Ensure proper layering of content and background
-            _before={{
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundImage: `url(${background})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                opacity: 0.7, // Adjust the opacity of the background image
-                zIndex: -1, // Place it behind the content
-                borderRadius: "inherit", // Ensure rounded corners match the modal
-            }}
+            borderRadius={12}
         >
             {
                 event.attendStatus === false &&
@@ -77,15 +63,43 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                     </Box>
             }
             <ModalHeader>
-            <Text fontSize="3xl" fontWeight="bold" color="blue.400" pb={4}>
-                {event.eventName} - Available for Sign Up!
-            </Text>
-            <Text fontSize="xl" color={textColor} pb={0}>
-                {event.dateTimeStart} - {event.dateTimeEnd}
-            </Text>
-            <Text fontSize="xl" color="gray.500">
-                {event.location}
-            </Text>
+                <Flex justify="space-between" align="center">
+                    {/* Left side: Event details */}
+                    <Box flex="3">
+                    <Text fontSize="3xl" fontWeight="bold" color="blue.400" pb={0}>
+                        {event.eventName} - Sign Up Now!
+                    </Text>
+                    <Text fontSize="xl" color={textColor} pb={0}>
+                        {event.dateTimeStart} - {event.dateTimeEnd}
+                    </Text>
+                    <Text fontSize="xl" color="gray.500">
+                        {event.location} 
+                    </Text>
+                    <Button
+                        as="a"
+                        href="https://maps.app.goo.gl/C2KHvnXYBCUVcwPu8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        bg="#90CEF4"
+                        size="sm"
+                        variant="solid"
+                        marginTop={3}
+                        color="black"
+                        >
+                        View on Map
+                        </Button>
+                    </Box>
+
+                    {/* Right side: Image */}
+                    <Image 
+                    src={relevantImage} 
+                    alt="Event" 
+                    boxSize="150px"  // Adjust the size of the image
+                    objectFit="cover"  // Adjust the image fitting
+                    borderRadius="12px"
+                    flex="1.2"
+                    />
+                </Flex>
             </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
@@ -93,7 +107,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                 <Text fontSize="lg" color={textColor} mb={4}>
                 {event.eventDescription && (
                     <Box mb={4}>
-                    <StatLabel fontSize="xl" fontWeight="bold" pb={2}>
+                    <StatLabel fontSize="xl" fontWeight="bold" pb={2} color="blue.400">
                         Event Details:
                     </StatLabel>
                     <Box mb={4} dangerouslySetInnerHTML={{ __html: event.eventDescription }} />
@@ -104,7 +118,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                 {
                     event.userType === "volunteer" &&
                         <Box ml={2}>
-                        <StatLabel fontSize='xl' fontWeight='bold'>
+                        <StatLabel fontSize='xl' fontWeight='bold' color="blue.500">
                             Available Time Slots:
                         </StatLabel>
                         <Stack spacing={2} mt={1}>
@@ -123,7 +137,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                             </Checkbox>
                             ))}
                         </Stack>
-                        <StatLabel fontSize='xl' fontWeight='bold' mt={4}>
+                        <StatLabel fontSize='xl' fontWeight='bold' mt={4} color="blue.500">
                             Available Tasks:
                         </StatLabel>
                         <Stack spacing={2} mt={2}>

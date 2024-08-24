@@ -583,7 +583,7 @@ export default function EventsCalendar() {
   ])
   // const [events, setEvents] = useState([
   //   {
-  //     attendStatus: false,
+  //     attendStatus: true,
   //     eventId: "axym1283hsnausXX",
   //     eventName: "Diwali Night 2024",
   //     eventDescription: `
