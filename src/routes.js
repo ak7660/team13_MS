@@ -68,15 +68,15 @@ var dashRoutes = [
         layout: "/admin",
       },
       {
-        path: "/task-delegation-system",  // task delegation
-        name: "Task Delegation System",
+        path: "/signin",  
+        name: "Sign In",
         icon: <DocumentIcon color="inherit" />,
         component: SignIn,
         layout: "/auth",
       },
       {
-        path: "/data-analytics-dashboard",  // data analytics dashboard
-        name: "Data Analytics Dashboard",
+        path: "/signup", 
+        name: "Sign Up",
         icon: <RocketIcon color="inherit" />,
         secondaryNavbar: true,
         component: SignUp,
