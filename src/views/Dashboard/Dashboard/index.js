@@ -109,7 +109,7 @@ export default function Dashboard() {
         })}
       </Grid>
 
-      <Grid
+      {/* <Grid
         templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "1fr 1fr" }}
         templateRows={{ sm: "1fr", md: "1fr", lg: "1fr" }}
         gap='24px' marginTop={10}>
@@ -119,7 +119,7 @@ export default function Dashboard() {
           captions={["Feedbacks", "Ranking"]}
           data={dashboardTableData}
         />
-      </Grid>
+      </Grid> */}
 
     </Flex>
   );
