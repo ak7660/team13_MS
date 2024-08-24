@@ -35,7 +35,7 @@ const BuiltByDevelopers = ({ title, name, description, image, distance }) => {
             <Text fontSize='sm' color='gray.500' fontWeight='normal'>
               {description}
             </Text>
-            <Text fontSize='sm' color='teal.300' fontWeight='normal'>
+            <Text fontSize='sm' color='#fca503' fontWeight='normal'>
               {distance}
             </Text>
             <Spacer />
