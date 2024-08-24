@@ -9,13 +9,20 @@ class PieChart extends React.Component {
       
         series: [44, 55, 13, 43, 22],
         options: {
+          plotOptions: {
+            pie: {
+              customScale: 1.0
+            },
+            
+
+          },
           chart: {
             width: 380,
             type: 'pie',
           },
           labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
           responsive: [{
-            breakpoint: 480,
+            breakpoint: 400,
             options: {
               chart: {
                 width: 200
@@ -37,7 +44,7 @@ class PieChart extends React.Component {
       return (
         <div>
           <div id="chart">
-            <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
+            <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380}/>
           </div>
           <div id="html-dist"></div>
         </div>

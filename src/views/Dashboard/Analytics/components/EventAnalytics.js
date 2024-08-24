@@ -29,7 +29,10 @@ const EventAnalytics = ({data}) => {
         </CardHeader>
         <CardBody>
           <Flex direction="column" w="100%">
-          <DemographicGraph />
+            <Flex w="50%">
+            <DemographicGraph />
+
+            </Flex>
           <Divider py="20px" mb="20px"/>
           <FeedbackSection />
           </Flex>
