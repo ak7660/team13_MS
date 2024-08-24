@@ -14,11 +14,11 @@ import React from "react";
 // react icons
 import { BsArrowRight } from "react-icons/bs";
 
-const BuiltByDevelopers = ({ title, name, description, image }) => {
+const BuiltByDevelopers = ({ title, name, description, image, distance }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Card minHeight='290.5px' p='1.2rem'>
+    <Card minHeight='200.5px' p='1.2rem'>
       <CardBody w='100%'>
         <Flex flexDirection={{ sm: "column", lg: "row" }} w='100%'>
           <Flex
@@ -26,14 +26,17 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
             h='100%'
             lineHeight='1.6'
             width={{ lg: "45%" }}>
-            <Text fontSize='sm' color='gray.400' fontWeight='bold'>
+            <Text fontSize='large' color='black.100' fontWeight='bold'>
               {title}
             </Text>
             <Text fontSize='lg' color={textColor} fontWeight='bold' pb='.5rem'>
               {name}
             </Text>
-            <Text fontSize='sm' color='gray.400' fontWeight='normal'>
+            <Text fontSize='sm' color='gray.500' fontWeight='normal'>
               {description}
+            </Text>
+            <Text fontSize='sm' color='teal.300' fontWeight='normal'>
+              {distance}
             </Text>
             <Spacer />
             <Flex align='center'>
@@ -50,7 +53,7 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
                   transition='all .5s ease'
                   my={{ sm: "1.5rem", lg: "0px" }}
                   _hover={{ me: "4px" }}>
-                  Read more
+                  Join
                 </Text>
                 <Icon
                   as={BsArrowRight}
@@ -68,7 +71,6 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
           </Flex>
           <Spacer />
           <Flex
-            bg='teal.300'
             align='center'
             justify='center'
             borderRadius='15px'
