@@ -3,6 +3,7 @@
 import {
     Box,
     Button, Flex,
+    Image,
     Link,
     Stack,
     Text,
@@ -14,7 +15,7 @@ import { Separator } from "components/Separator/Separator";
 import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import mainlogo from "../../assets/img/favicon.ico"
 // this function creates the links and collapses that appear in the sidebar (left menu)
 
 
@@ -190,8 +191,8 @@ const SidebarContent = ({ logoText, routes }) => {
         alignItems="center"
         fontSize="11px"
       >
-        <CreativeTimLogo w="32px" h="32px" me="10px" />
-        <Text fontSize="sm" mt="3px">
+        <Image src={mainlogo} w="50px" h="50px" me="10px" alt="Logo" />
+        <Text fontSize="xl" mt="2px">
           {logoText}
         </Text>
       </Link>
