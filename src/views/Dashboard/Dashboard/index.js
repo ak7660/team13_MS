@@ -14,11 +14,11 @@ import logoChakra from "assets/svg/logo-white.svg";
 import BarChart from "components/Charts/BarChart";
 import LineChart from "components/Charts/LineChart";
 import img_1 from 'assets/img/1.jpg';
-import img_2 from 'assets/img/2.jpg';
-import img_3 from 'assets/img/3.jpg';
-import img_4 from 'assets/img/4.jpg';
+import img_2 from 'assets/img/2.jpeg';
+import img_3 from 'assets/img/3.webp';
+import img_4 from 'assets/img/4.png';
 import img_5 from 'assets/img/5.jpg';
-import img_6 from 'assets/img/6.jpg';
+import img_6 from 'assets/img/6.webp';
 // Custom icons
 import {
   CartIcon,
@@ -40,12 +40,12 @@ export default function Dashboard() {
   const iconBoxInside = useColorModeValue("white", "white");
 
   const my_event = [
-    { title: "Morgan Stanley Volunteer Event", attendees: "10", imageId: img_1, description: "Join us in volunteering at the Morgan Stanley event to support minorities in Hong Kong.", distance: "0.1" },
-    { title: "Goldman Sachs Community Outreach", attendees: "15", imageId: img_2, description: "Participate in our community outreach program organized by Goldman Sachs to help marginalized communities in Hong Kong.", distance: "0.8" },
-    { title: "Citibank Charity Fundraiser", attendees: "20", imageId: img_3, description: "Support our charity fundraiser organized by Citibank to raise funds for minority groups in Hong Kong.", distance: "1.3" },
-    { title: "JP Morgan Mentoring Program", attendees: "12", imageId: img_4, description: "Get involved in our mentoring program initiated by JP Morgan to empower underprivileged individuals in Hong Kong.", distance: "2.4" },
-    { title: "HSBC Education Drive", attendees: "8", imageId: img_5, description: "Contribute to our education drive led by HSBC to provide educational resources to minority students in Hong Kong.", distance: "9.8" },
-    { title: "UBS Healthcare Initiative", attendees: "10", imageId: img_6, description: "Partake in the healthcare initiative organized by UBS to improve healthcare access for minority populations in Hong Kong.", distance: "18.4" },
+    { title: "Diwali Celebration Event", attendees: "50", imageId: img_1, description: "Celebrate Diwali with us at this event dedicated to promoting cultural diversity and inclusivity.", distance: "0.1" },
+    { title: "Women Empowerment Workshop", attendees: "25", imageId: img_2, description: "Join our workshop aimed at empowering women in various aspects of life and work.", distance: "0.8" },
+    { title: "1 on 1 Consultation for Ethnic Minorities", attendees: "15", imageId: img_3, description: "Participate in personalized consultations tailored to the needs of ethnic minority individuals.", distance: "1.3" },
+    { title: "Cultural Exchange Program for Diversity", attendees: "30", imageId: img_4, description: "Engage in our cultural exchange program designed to foster understanding and appreciation for diverse ethnic backgrounds.", distance: "2.4" },
+    { title: "Diversity in Tech Panel Discussion", attendees: "20", imageId: img_5, description: "Join our panel discussion focusing on diversity in the tech industry and ways to promote inclusivity.", distance: "9.8" },
+    { title: "Minority Business Networking Event", attendees: "40", imageId: img_6, description: "Network with entrepreneurs and professionals from minority communities to foster collaboration and growth.", distance: "18.4" },
   ];
 
 
