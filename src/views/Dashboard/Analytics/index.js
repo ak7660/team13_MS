@@ -1,123 +1,128 @@
-import {
-  Flex,
-  Grid,
-  Image,
-  SimpleGrid,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Flex, Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
-import Projects from "../Dashboard/components/Projects";
-import OrdersOverview from "../Dashboard/components/OrdersOverview";
-import { dashboardTableData, timelineData } from "variables/general";
+import { motion } from "framer-motion";
 import EventCard from "./components/EventCard";
-import MiniStatistics from "../Dashboard/components/MiniStatistics";
-import { WalletIcon } from "components/Icons/Icons";
-import EventSatisfaction from "./components/EventSatisfaction";
-import LineChart from "components/Charts/LineChart";
+import EventAnalytics from "./components/EventAnalytics";
 
 const Analytics = () => {
+  const events = [
+    {
+      name: "Chai Tea Meet Up Event",
+      image: "https://via.placeholder.com/150",
+      startTime: "17/05/2024",
+      endTime: "18/05/2024",
+      location: "Wan Chai",
+      rating: 4.2,
+      numOfReviews: 20,
+    },
+    {
+      name: "Chai Tea Meet Up Event",
+      image: "https://via.placeholder.com/150",
+      startTime: "17/05/2024",
+      endTime: "18/05/2024",
+      location: "Wan Chai",
+      rating: 4.2,
+      numOfReviews: 20,
+    },
+    {
+      name: "Chai Tea Meet Up Event",
+      image: "https://via.placeholder.com/150",
+      startTime: "17/05/2024",
+      endTime: "18/05/2024",
+      location: "Wan Chai",
+      rating: 4.2,
+      numOfReviews: 20,
+    },
+    {
+      name: "Chai Tea Meet Up Event",
+      image: "https://via.placeholder.com/150",
+      startTime: "17/05/2024",
+      endTime: "18/05/2024",
+      location: "Wan Chai",
+      rating: 4.2,
+      numOfReviews: 20,
+    },
+  ];
+
+  const [selectedEventIndex, setSelectedEventIndex] = React.useState(0);
+
   return (
     <div>
       <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
-        <EventCard
-          title={"Projects"}
-          amount={30}
-          captions={["Companies", "Members", "Budget", "Completion"]}
-          data={dashboardTableData}
-        />
-        <EventSatisfaction
-          title={"Sales Overview"}
-          chart={<LineChart />}
-        />
-        {/* <Simple columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
-          <MiniStatistics
-            title={"Today's Moneys"}
-            amount={"$53,000"}
-            percentage={55}
-            icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-          />
-          <MiniStatistics
-            title={"Today's Users"}
-            amount={"2,300"}
-            percentage={5}
-            icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-          />
-          <MiniStatistics
-            title={"New Clients"}
-            amount={"+3,020"}
-            percentage={-14}
-            icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-          />
-          <MiniStatistics
-            title={"Total Sales"}
-            amount={"$173,000"}
-            percentage={8}
-            icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-          />
-        </Simple> */}
-        {/* <Grid
-          templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
-          templateRows={{ md: "1fr auto", lg: "1fr" }}
-          my="26px"
-          gap="24px"
-        >
-          <BuiltByDevelopers
-            title={"Built by Developers"}
-            name={"Purity UI Dashboard"}
-            description={
-              "From colors, cards, typography to complex elements, you will find the full documentation."
-            }
-            image={
-              <Image
-                src={logoChakra}
-                alt="chakra image"
-                minWidth={{ md: "300px", lg: "auto" }}
-              />
-            }
-          />
-          <WorkWithTheRockets
-            backgroundImage={peopleImage}
-            title={"Work with the rockets"}
-            description={
-              "Wealth creation is a revolutionary recent positive-sum game. It is all about who takes the opportunity first."
-            }
-          />
+        <Grid templateColumns="40% 60%" gap="20px">
+          <GridItem
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            p="1px"
+          >
+            <Grid gap="30px" w="100%" h="40rem" overflow="scroll" p="0px 15px" overflowX="hidden"
+            overflowY="auto"
+            css={{
+              "&::-webkit-scrollbar": {
+                width: "5px",
+                visibility: "hidden"
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#a0aec0",
+                borderRadius: "5px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: "#718096",
+                borderRadius: "5px",
+              },
+              "&:hover::-webkit-scrollbar": {
+                visibility: "visible",
+              },
+              "&::-webkit-scrollbar": {
+                visibility: "hidden",
+              },
+            }}>
+              {events.map((event, index) => (
+                <GridItem
+                  key={index}
+                  onClick={() => setSelectedEventIndex(index)}
+                  cursor="pointer"
+                >
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: index === selectedEventIndex ? 1 : 0.5 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <EventCard
+                      data={event}
+                      selected={index === selectedEventIndex}
+                    />
+                  </motion.div>
+                </GridItem>
+              ))}
+            </Grid>
+          </GridItem>
+          <GridItem h="40rem" overflow="scroll" overflowX="hidden" p="0px 15px"
+            overflowY="auto"
+            css={{
+              "&::-webkit-scrollbar": {
+                width: "2px",
+                visibility: "hidden"
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#a0aec0",
+                borderRadius: "5px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: "#718096",
+                borderRadius: "5px",
+              },
+              "&:hover::-webkit-scrollbar": {
+                visibility: "visible",
+              },
+              "&::-webkit-scrollbar": {
+                visibility: "hidden",
+              },
+            }}>
+            <EventAnalytics data={events[selectedEventIndex]} />
+          </GridItem>
         </Grid>
-        <Grid
-          templateColumns={{ sm: "1fr", lg: "1.3fr 1.7fr" }}
-          templateRows={{ sm: "repeat(2, 1fr)", lg: "1fr" }}
-          gap="24px"
-          mb={{ lg: "26px" }}
-        >
-          <ActiveUsers
-            title={"Active Users"}
-            percentage={23}
-            chart={<BarChart />}
-          />
-          <SalesOverview
-            title={"Sales Overview"}
-            percentage={5}
-            chart={<LineChart />}
-          />
-        </Grid>
-         */}
-        {/* <Grid
-          templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
-          templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
-          gap="24px"
-        >
-          <Projects
-            title={"Projects"}
-            amount={30}
-            captions={["Companies", "Members", "Budget", "Completion"]}
-            data={dashboardTableData}
-          />
-          <OrdersOverview
-            title={"Orders Overview"}
-            amount={30}
-            data={timelineData}
-          />
-        </Grid> */}
       </Flex>
     </div>
   );
