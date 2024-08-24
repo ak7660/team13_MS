@@ -15,6 +15,7 @@ import React from "react";
 
 const EventCard = ({  dateTimeString, name, numOfVolunteer, quotaVolunteer, numOfParticipant, quotaParticipant, location, onEdit }) => {
     // Chakra color mode
+    console.log(name)
     const textColor = useColorModeValue("gray.700", "white");
     const getFormattedDate = (dateTimeString) => {
         const date = new Date(dateTimeString);

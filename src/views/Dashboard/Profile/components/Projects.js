@@ -18,13 +18,27 @@ import imageArchitect3 from "assets/img/ImageArchitect3.png";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
-import React from "react";
+import React, {useState} from "react";
 import { FaPlus } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
+import { eventsData } from "variables/general";
+import EventCard from "./EventCard";
+import EditEventModal from "./EditEventModal";
 
 const Projects = ({ title, description }) => {
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleEdit = (event) => {
+      setIsEditing(true);
+      setSelectedEvent(event);
+  };
+
+  const handleCloseEdit = () => {
+      setIsEditing(false);
+  };
 
   return (
     <Card p='16px' my='24px'>
@@ -33,15 +47,12 @@ const Projects = ({ title, description }) => {
           <Text fontSize='lg' color={textColor} fontWeight='bold'>
             {title}
           </Text>
-          <Text fontSize='sm' color='gray.500' fontWeight='400'>
-            {description}
-          </Text>
         </Flex>
       </CardHeader>
       <CardBody px='5px'>
-        <Grid
+        {/* <Grid
           templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
-          templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
+          templateeventss={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
           gap='24px'>
           <ProjectCard
             image={imageArchitect1}
@@ -84,7 +95,27 @@ const Projects = ({ title, description }) => {
               </Text>
             </Flex>
           </Button>
-        </Grid>
+        </Grid> */}
+        <Flex direction='column'>
+          {eventsData.map((events) => {
+            // console.log(events)
+            const totalVolunteers = (events.requiredTask && events.requiredTask.reduce) ? events.requiredTask.reduce((acc, curr) => acc + curr.volunteer, 0) : 0;
+            const totalQuotaVolunteers = (events.requiredTask && events.requiredTask.reduce) ? events.requiredTask.reduce((acc, curr) => acc + curr.quotaVolunteer, 0) : 0;
+            return (
+            <EventCard 
+              dateTimeString={events.dateTimeStart}
+              name={events.eventName}
+              numOfVolunteer={totalVolunteers}
+              quotaVolunteer={totalQuotaVolunteers}
+              numOfParticipant={events.numOfParticipant}
+              quotaParticipant={events.quotaParticipant} 
+              location={events.location}
+              onEdit={() => handleEdit(events)}
+            />
+            )
+          })}
+          <EditEventModal isOpen={isEditing} onClose={handleCloseEdit} event={selectedEvent} />
+        </Flex>
       </CardBody>
     </Card>
   );
