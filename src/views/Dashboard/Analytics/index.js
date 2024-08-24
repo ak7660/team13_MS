@@ -56,7 +56,7 @@ const Analytics = () => {
             alignItems="center"
             p="1px"
           >
-            <Grid gap="30px" w="100%" h="40rem" overflow="scroll" p="0px 15px" overflowX="hidden"
+            <Grid gap="30px" w="100%" h="40rem" overflow="scroll" p="20px 15px" overflowX="hidden"
             overflowY="auto"
             css={{
               "&::-webkit-scrollbar": {
@@ -98,7 +98,7 @@ const Analytics = () => {
               ))}
             </Grid>
           </GridItem>
-          <GridItem h="40rem" overflow="scroll" overflowX="hidden" p="0px 15px"
+          <GridItem h="40rem" overflow="scroll" overflowX="hidden" p="20px 15px"
             overflowY="auto"
             css={{
               "&::-webkit-scrollbar": {
