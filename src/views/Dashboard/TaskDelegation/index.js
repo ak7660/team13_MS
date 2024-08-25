@@ -79,7 +79,7 @@ function TaskDelegation() {
         backgroundProfile={bgProfile}
         avatarImage={EventDiwali}
         name={"Diwali Day Celebration 2024"}
-        email={"31 October 2024"}
+        email={"30 October 2024"}
         desc={
           "Celebrate your Diwali with us! Come help us to arrange the event and meet the likeminded people!"
         }
