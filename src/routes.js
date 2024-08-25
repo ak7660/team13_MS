@@ -19,6 +19,20 @@ import {
   RocketIcon,
   SupportIcon,
 } from "components/Icons/Icons";
+import { ClipboardIcon } from "chakra-ui-ionicons";
+import { AddIcon } from "chakra-ui-ionicons";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuIcon,
+  MenuCommand,
+  MenuDivider,
+} from "@chakra-ui/react";
 
 var dashRoutes = [
   {
@@ -29,14 +43,14 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/events-dashboard",  // events calendar page - redirect to sign up for and for checking RSVP events
+    path: "/events-dashboard", // events calendar page - redirect to sign up for and for checking RSVP events
     name: "Events Dashboard",
-    icon: <HomeIcon color="inherit" />,
+    icon: <ClipboardIcon color="inherit" />,
     component: EventsCalendar,
     layout: "/admin",
   },
   {
-    path: "/leaderboard",  // leaderboard
+    path: "/leaderboard", // leaderboard
     name: "Leaderboard",
     icon: <StatsIcon color="inherit" />,
     component: Leaderboard,
@@ -71,7 +85,7 @@ var dashRoutes = [
       {
         path: "/add-and-manage-events", // add and manage events
         name: "Add & Manage Events",
-        icon: <PersonIcon color="inherit" />,
+        icon: <AddIcon color="inherit" />,
         secondaryNavbar: true,
         component: Profile,
         layout: "/admin",
@@ -91,14 +105,14 @@ var dashRoutes = [
         layout: "/admin",
       },
       {
-        path: "/signin",  // sign in route
+        path: "/signin", // sign in route
         name: "Sign In",
         icon: <DocumentIcon color="inherit" />,
         component: SignIn,
         layout: "/auth",
       },
       {
-        path: "/signup",  // sign up route
+        path: "/signup", // sign up route
         name: "Sign Up",
         icon: <RocketIcon color="inherit" />,
         secondaryNavbar: true,

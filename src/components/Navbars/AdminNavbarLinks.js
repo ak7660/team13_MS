@@ -12,26 +12,58 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Box,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import {
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuIcon,
+  MenuCommand,
+  MenuDivider,
+} from "@chakra-ui/react";
+import { ChevronDownIcon } from "chakra-ui-ionicons";
+import { LanguageIcon } from "chakra-ui-ionicons";
 // Assets
 import avatar1 from "assets/img/avatars/avatar1.png";
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar3 from "assets/img/avatars/avatar3.png";
+import { AddIcon } from "chakra-ui-ionicons";
 // Custom Icons
 import { ProfileIcon, SettingsIcon } from "components/Icons/Icons";
 // Custom Components
 import { ItemContent } from "components/Menu/ItemContent";
 import SidebarResponsive from "components/Sidebar/SidebarResponsive";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
 
 export default function HeaderLinks(props) {
   const { variant, children, fixed, secondary, onOpen, ...rest } = props;
-
+  const [isTransOpen, setIsTransOpen] = useState(false);
+  const handleTransToggle = () => {
+    setIsTransOpen(!isTransOpen);
+  };
+  const ethnicLanguages = [
+    "Ainu (Japan)",
+    "Basque (Spain, France)",
+    "Quechua (South America)",
+    "Maori (New Zealand)",
+    "Hmong (China, Southeast Asia)",
+    "Yoruba (Nigeria)",
+    "Tibetan (Tibet, China)",
+    "Sami (Northern Europe)",
+    "Guarani (Paraguay, Bolivia)",
+    "Romani (Europe)",
+    "Rohingya (Myanmar)",
+    "Tigrinya (Eritrea, Ethiopia)",
+    "Ojibwe (North America)",
+    "Pashto (Afghanistan)",
+    "Amharic (Ethiopia)",
+  ];
   // Chakra Color Mode
   let mainTeal = useColorModeValue("teal.300", "teal.300");
   let inputBg = useColorModeValue("white", "gray.800");
@@ -135,6 +167,25 @@ export default function HeaderLinks(props) {
         w="18px"
         h="18px"
       />
+      <Menu>
+        <MenuButton
+          as={Button}
+          sx={{
+            backgroundColor: "transparent",
+            color: { navbarIcon },
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          <LanguageIcon />
+        </MenuButton>
+        <MenuList>
+          {ethnicLanguages.map((lang) => {
+            return <MenuItem>{lang}</MenuItem>;
+          })}
+        </MenuList>
+      </Menu>
       <Menu>
         <MenuButton>
           <BellIcon color={navbarIcon} w="18px" h="18px" />
