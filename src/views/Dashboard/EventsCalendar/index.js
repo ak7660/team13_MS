@@ -16,6 +16,7 @@ import {events as initialEvents} from "./events";
 export default function EventsCalendar() {
   const iconBoxInside = useColorModeValue("white", "white");
   const [events, setEvents] = useState(initialEvents);
+
   const handleUpdateAttendStatus = (eventId, newStatus) => {
     setEvents((prevEvents) =>
         prevEvents.map((evt) =>

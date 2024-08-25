@@ -122,7 +122,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                             Available Time Slots:
                         </StatLabel>
                         <Stack spacing={2} mt={1}>
-                            {event.availableTimeSlots.map((slot, index) => (
+                            {event.availableTimeSlots && event.availableTimeSlots.map((slot, index) => (
                             <Checkbox
                                 key={index}
                                 isChecked={selectedSlots.includes(slot)}
@@ -141,7 +141,7 @@ const EventSignupPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedT
                             Available Tasks:
                         </StatLabel>
                         <Stack spacing={2} mt={2}>
-                            {event.taskTypes.map((task, index) => (
+                            {event.taskTypes && event.taskTypes.map((task, index) => (
                             <Checkbox
                                 key={index}
                                 isChecked={selectedTasks.includes(task)}

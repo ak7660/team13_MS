@@ -145,7 +145,7 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                                     Hey, thanks for helping us out! We look forward to having you. Before you get started, please watch the training materials below to get integrated into our system!
                                 </StatLabel>
                                 <Stack spacing={2} mt={2}>
-                                    {event.trainingMaterials.map((material, index) => (
+                                    {event.trainingMaterials && event.trainingMaterials.map((material, index) => (
                                         <Button
                                             key={index}
                                             as="a"
@@ -162,7 +162,7 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                                 </Stack>
 
                                 {/* Selected Tasks and Time Slots */}
-                                <StatLabel fontSize='xl' fontWeight='bold' mt={4}>
+                                <StatLabel fontSize='xl' fontWeight='bold' mt={4} color="#a36b03">
                                     Assigned Tasks:
                                 </StatLabel>
                                 <StatLabel fontSize='md' fontWeight='' mt={0}>
@@ -170,7 +170,7 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                                 </StatLabel>
 
                                 <Stack spacing={4} mt={2}>
-                                    {event.delegatedTasks.map((taskInfo, index) => (
+                                    {event.delegatedTasks && event.delegatedTasks.map((taskInfo, index) => (
                                     <Box key={index} p={4} border="1px" borderColor="gray.800" borderRadius="md">
                                         <Text fontSize="lg" fontWeight="bold">
                                             {taskInfo.task}
