@@ -23,22 +23,13 @@ import { StarIcon } from "@chakra-ui/icons";
 import { GPSIcon } from "components/Icons/Icons";
 import peopleImage from "assets/img/people-image.png";
 import EventCardStatistics from "./EventCardStatistics";
+import { FaHandshake, FaUser } from "react-icons/fa";
 
 // data includes:
 // name, image, startDay, endDay, location, rating, numOfReviews
 const EventCard = ({ data, selected }) => {
   const textColor = useColorModeValue("gray.700", "white");
   const iconBoxInside = useColorModeValue("white", "white");
-
-  data = {
-    name: "Chai Tea Meet Up Event",
-    image: "https://via.placeholder.com/150",
-    startTime: "17/05/2024",
-    endTime: "18/05/2024",
-    location: "Wan Chai",
-    rating: 4.2,
-    numOfReviews: 20,
-  };
 
   return (
     <Card p="0px" overflowX={{ sm: "scroll", xl: "hidden" }} maxWidth="30rem" w="100%" boxShadow={selected ? "xl" : "lg"}>
@@ -67,22 +58,25 @@ const EventCard = ({ data, selected }) => {
           </Flex>
           <Flex w="100%" justifyContent="space-between" alignItems="center" wrap="wrap" >
           <EventCardStatistics
-              title={"Ratings"}
-              amount={"2,400$"}
+              title={"Rating"}
+              amount={data.rating}
               percentage={30}
               icon={<StarIcon h={"0.8rem"} w={"0.8rem"} color={iconBoxInside} />}
+              showProgress={false}
             />
             <EventCardStatistics
               title={"Attendees"}
-              amount={"32,984"}
+              amount={data.attendees}
               percentage={20}
-              icon={<StarIcon h={"0.8rem"} w={"0.8rem"} color={iconBoxInside} />}
+              icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaUser} color={iconBoxInside} />}
+              showProgress={false}
             />
             <EventCardStatistics
               title={"Volunteers"}
-              amount={"2.42m"}
+              amount={data.volunteers}
               percentage={80}
-              icon={<StarIcon h={"0.8rem"} w={"0.8rem"} color={iconBoxInside} />}
+              icon={<StarIcon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside} />}
+              showProgress={false}
             />
             
           </Flex>

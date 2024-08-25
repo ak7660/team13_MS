@@ -7,7 +7,7 @@ class PieChart extends React.Component {
 
       this.state = {
       
-        series: [44, 55, 13, 43, 22],
+        series: [44, 55, 13, 43, 22, 10],
         options: {
           plotOptions: {
             pie: {
@@ -20,7 +20,11 @@ class PieChart extends React.Component {
             width: 380,
             type: 'pie',
           },
-          labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+          labels: ['Indian', 'Pakistani', 'Filipino', 'Indonesian', 'Bangladeshi', "Thai"],
+          legend: {
+            fontSize: '12px',
+            position: 'bottom',
+          },
           responsive: [{
             breakpoint: 400,
             options: {
@@ -28,6 +32,7 @@ class PieChart extends React.Component {
                 width: 200
               },
               legend: {
+                fontSize: '10px',
                 position: 'bottom'
               }
             }
