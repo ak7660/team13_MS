@@ -4,10 +4,10 @@ import React from 'react'
 const Navbar = ({ selectedAnalytics, setSelectedAnalytics }) => {
   return (
     <Flex direction='row' gap="8px" alignItems="center" p="10px">
-      <Button colorScheme='teal' variant={selectedAnalytics === 0 ? 'solid' : 'outline'} onClick={() => setSelectedAnalytics(0)}>
+      <Button colorScheme='yellow' variant={selectedAnalytics === 0 ? 'solid' : 'outline'} onClick={() => setSelectedAnalytics(0)}>
         General
       </Button>
-      <Button colorScheme='teal' variant={selectedAnalytics === 1 ? 'solid' : 'outline'} onClick={() => setSelectedAnalytics(1)}>
+      <Button colorScheme='yellow' variant={selectedAnalytics === 1 ? 'solid' : 'outline'} onClick={() => setSelectedAnalytics(1)}>
         Events  
       </Button>
     </Flex>
