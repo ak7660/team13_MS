@@ -6,6 +6,7 @@ import {
     Divider,
   Flex,
   Grid,
+  Icon,
   Image,
   SimpleGrid,
   Text,
@@ -27,6 +28,8 @@ import MiniStatistics from "views/Dashboard/Dashboard/components/MiniStatistics"
 import EthnicityGraph from "./EthnicityAnalysis";
 import EthnicityAnalysis from "./EthnicityAnalysis";
 import AgeAnalysis from "./AgeAnalysis";
+import { FaFire, FaHandshake, FaUser } from "react-icons/fa";
+import { StarIcon } from "chakra-ui-ionicons";
 const GeneralAnalytics = () => {
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
@@ -41,30 +44,31 @@ const GeneralAnalytics = () => {
           title={"Attendees"}
           amount={"53"}
           percentage={55}
-          icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
+          icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaUser} color={iconBoxInside} />}
         />
         <MiniStatistics
           title={"Volunteers"}
           amount={"10"}
           percentage={5}
-          icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
+          icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside} />}
         />
         <MiniStatistics
           title={"Rating"}
           amount={"4.2"}
           percentage={-14}
-          icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
+          icon={<StarIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
         <MiniStatistics
           title={"Popularity"}
           amount={"50"}
           percentage={8}
-          icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
+          icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaFire} color={iconBoxInside} />}
         />
       </SimpleGrid>
       <Text fontSize="1.6rem" color={textColor} fontWeight="bold" pb="5px">
         Events Analysis
       </Text>
+      
       <Grid
         templateColumns={{ sm: "1fr", lg: "1.3fr 1.7fr" }}
         templateRows={{ sm: "repeat(2, 1fr)", lg: "1fr" }}
@@ -72,12 +76,12 @@ const GeneralAnalytics = () => {
         mb={{ lg: "26px" }}
       >
         <UserGraph
-          title={"Active Users"}
+          title={"Positive Feedback"}
           percentage={23}
           chart={<BarChart />}
         />
         <EffectivenessGraph
-          title={"Sales Overview"}
+          title={"Attendance Rates"}
           percentage={5}
           chart={<LineChart />}
         />

@@ -1,4 +1,4 @@
-import { Flex, SimpleGrid, Text, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Icon, SimpleGrid, Text, useColorModeValue } from "@chakra-ui/react";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import {
@@ -9,6 +9,7 @@ import {
 } from "components/Icons/Icons.js";
 import React from "react";
 import ChartStatistics from "./ChartStatistics";
+import { FaHandshake, FaUser } from "react-icons/fa";
 
 const UserGraph = ({ title, percentage, chart }) => {
   const iconBoxInside = useColorModeValue("white", "white");
@@ -23,40 +24,45 @@ const UserGraph = ({ title, percentage, chart }) => {
               {title}
             </Text>
             <Text fontSize='md' fontWeight='medium' color='gray.400'>
-              <Text
-                as='span'
-                color={percentage > 0 ? "green.400" : "red.400"}
-                fontWeight='bold'>
-                {percentage > 0 ? `+${percentage}%` : `-${percentage}%`}
-              </Text>{" "}
-              than last week
-            </Text>
+            <Text
+              as='span'
+              color={"green.400"}
+              fontWeight='bold'>
+              {`20%`} more
+            </Text>{" "}
+            than last month
+          </Text>
           </Flex>
           <SimpleGrid gap={{ sm: "12px" }} columns={4}>
             <ChartStatistics
-              title={"Users"}
-              amount={"32,984"}
+              title={"Attendees"}
+              amount={"50"}
               percentage={20}
-              icon={<WalletIcon h={"15px"} w={"15px"} color={iconBoxInside} />}
+              icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaUser} color={iconBoxInside}/>}
+              showProgress={false}
+            />
+            <ChartStatistics
+              title={"Volunteers"}
+              amount={16}
+              percentage={16}
+              icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside}/>}
+              showProgress={false}
             />
             <ChartStatistics
               title={"Clicks"}
-              amount={"2.42m"}
+              amount={34}
               percentage={80}
-              icon={<RocketIcon h={"15px"} w={"15px"} color={iconBoxInside} />}
+              icon={<RocketIcon h={"15px"} w={"15px"} color={iconBoxInside}/>}
+              showProgress={false}
             />
             <ChartStatistics
-              title={"Sales"}
-              amount={"2,400$"}
+              title={"Popularity"}
+              amount={20}
               percentage={30}
-              icon={<CartIcon h={"15px"} w={"15px"} color={iconBoxInside} />}
+              icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside}/>}
+              showProgress={false}
             />
-            <ChartStatistics
-              title={"Items"}
-              amount={"320"}
-              percentage={40}
-              icon={<StatsIcon h={"15px"} w={"15px"} color={iconBoxInside} />}
-            />
+            
           </SimpleGrid>
         </Flex>
       </CardBody>

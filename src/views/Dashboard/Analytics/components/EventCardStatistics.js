@@ -9,7 +9,7 @@ const EventCardStatistics = ({
   percentage,
   showProgress = true,
 }) => {
-  const iconTeal = useColorModeValue("teal.300", "teal.300");
+  const iconTeal = useColorModeValue("#FFD147", "#FFD147");
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const overlayRef = React.useRef();
