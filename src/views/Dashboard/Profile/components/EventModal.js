@@ -95,7 +95,8 @@ return (
             <FormLabel>Required tasks</FormLabel>
             {tasks.map((task, index) => (
               <Box bg={"yellow.100"} padding={2} borderRadius={5} marginBottom={3}>
-                  <Flex direction='column' gap={2}>
+                <Box display="flex" flexDirection="row" flexGrow={1} alignItems='center'>
+                  <Flex direction='column' gap={2} flexGrow={1}> 
                     <Flex gap={2}>
                       <Input
                         flex="1 1 60%"
@@ -127,11 +128,9 @@ return (
                         placeholder="End date"
                       />
                     </Flex>
-                    
-                    <Button colorScheme="yellow" size="sm" onClick={() => deleteTask(index)}>
-                        Delete
-                    </Button>
                   </Flex>
+                  <Button colorScheme="yellow" size="sm" onClick={() => deleteTask(index)}variant="ghost" marginX={2}><DeleteIcon /></Button>
+                </Box>
                 </Box> 
             ))}
           </FormControl>
