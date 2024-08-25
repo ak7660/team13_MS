@@ -128,7 +128,7 @@ return (
             fontWeight='bold'
             textAlign='center'
             mb='22px'>
-            Register As
+            Register With
           </Text>
           <Example/>
           <Text
@@ -185,6 +185,105 @@ return (
                 mb='24px'
                 size='lg'
                 onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Ethnicity
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='ethnicity'
+                placeholder='Ethnicity'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEthnicity(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Age
+              </FormLabel>
+              <NumberInput defaultValue={15} max={30} clampValueOnBlur={false} fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='ethnicity'
+                placeholder='Ethnicity'
+                mb='24px'
+                size='lg'>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Hobby
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Hobby'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setName(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Professional Interest
+              </FormLabel>
+              <CheckboxGroup colorScheme='yellow' defaultValue={['Sports, Education, Technology, Finance, Social Work, Life']}>
+                <Stack spacing={[1, 5]} direction={['column', 'row']} fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='ethnicity'
+                placeholder='Ethnicity'
+                mb='24px'
+                size='lg'>
+                  <Checkbox value='Sports'>Sports</Checkbox>
+                  <Checkbox value='Education'>Education</Checkbox>
+                  <Checkbox value='Finance'>Finance</Checkbox>
+                  <Checkbox value='Social Work'>Social Work</Checkbox>
+                  <Checkbox value='Life'>Life in General</Checkbox>
+                </Stack>
+              </CheckboxGroup>
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Volunteer Experience
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Experience'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Skill
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Skill'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Language
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Language'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
               />
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
                 Password
