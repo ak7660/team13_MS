@@ -7,6 +7,7 @@ import {
   Link,
   Text,
   useColorModeValue,
+  Image
 } from "@chakra-ui/react";
 import {
   ZubinFoundationLogo,
@@ -21,7 +22,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
-import logo from "assets/apple-icon.png"
+import mainLogo from "../../assets/apple-icon.png"
 export default function AuthNavbar(props) {
   const [open, setOpen] = React.useState(false);
   const handleDrawerToggle = () => {
@@ -59,7 +60,7 @@ export default function AuthNavbar(props) {
       alignItems="center"
       color={mainText}
     >
-      <img src={logo} alt="Zubin Foundation Logo" width="32px" height="32px" style={{ marginRight: "10px" }} />
+      <Image src={mainLogo} alt="Zubin Foundation Logo" width="32px" height="32px" style={{ marginRight: "10px" }} />
       <Text fontSize="sm" mt="3px">
         {logoText}
       </Text>
