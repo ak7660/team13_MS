@@ -14,6 +14,15 @@ import {
   useColorModeValue,
   Alert,
   AlertIcon,
+  useRadio,
+  useRadioGroup,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  Checkbox, CheckboxGroup,
+  Stack
 } from "@chakra-ui/react";
 // Assets
 import BgSignUp from "assets/img/BgSignUp3.png";
@@ -24,7 +33,20 @@ import { Link as RouterLink} from "react-router-dom/cjs/react-router-dom";
 import { auth, db } from "../../config/firebaseConfig"; // Import db
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore"
+import {useHistory} from 'react-router-dom'
 
+/*
+'spacing='15px' justify='center' mb='22px'>
+            <Flex
+              justify='center'
+              align='center'
+              w='75px'
+              h='75px'
+              borderRadius='15px'
+              border='1px solid lightgray'
+              cursor='pointer'
+              transition='all .25s ease'
+*/
 
 function SignUp() {
   const titleColor = useColorModeValue("teal.300", "teal.200");
@@ -38,22 +60,18 @@ function SignUp() {
   const [ethnicity, setEthnicity] = useState('');
   const [age, setAge] = useState('');
   const [error, setError] = useState('');
+  const history = useHistory()
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        name,
-        email,
-        phoneNumber,
-        ethnicity,
-        age,
-      });
       console.log(userCredential);
+      history.push('/auth/signin')
     } catch (error) {
       console.log(error);
+    } finally{
+      console.log('suiccess')
     }
   };
 return (
@@ -112,65 +130,7 @@ return (
             mb='22px'>
             Register With
           </Text>
-          <HStack spacing='15px' justify='center' mb='22px'>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link>
-                <Icon
-                  as={FaFacebook}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='25px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link>
-                <Icon
-                  as={FaApple}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link>
-                <Icon
-                  as={FaGoogle}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-          </HStack>
+          <Example/>
           <Text
             fontSize='lg'
             color='gray.400'
@@ -242,15 +202,88 @@ return (
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
                 Age
               </FormLabel>
+              <NumberInput defaultValue={15} max={30} clampValueOnBlur={false} fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='ethnicity'
+                placeholder='Ethnicity'
+                mb='24px'
+                size='lg'>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Hobby
+              </FormLabel>
               <Input
                 fontSize='sm'
                 ms='4px'
                 borderRadius='15px'
-                type='number'
-                placeholder='Age'
+                type='text'
+                placeholder='Your Hobby'
                 mb='24px'
                 size='lg'
-                onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Professional Interest
+              </FormLabel>
+              <CheckboxGroup colorScheme='yellow' defaultValue={['Sports, Education, Technology, Finance, Social Work, Life']}>
+                <Stack spacing={[1, 5]} direction={['column', 'row']} fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='ethnicity'
+                placeholder='Ethnicity'
+                mb='24px'
+                size='lg'>
+                  <Checkbox value='Sports'>Sports</Checkbox>
+                  <Checkbox value='Education'>Education</Checkbox>
+                  <Checkbox value='Finance'>Finance</Checkbox>
+                  <Checkbox value='Social Work'>Social Work</Checkbox>
+                  <Checkbox value='Life'>Life in General</Checkbox>
+                </Stack>
+              </CheckboxGroup>
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Volunteer Experience
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Experience'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Skill
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Skill'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                Language
+              </FormLabel>
+              <Input
+                fontSize='sm'
+                ms='4px'
+                borderRadius='15px'
+                type='text'
+                placeholder='Your Language'
+                mb='24px'
+                size='lg'
+                onChange={(e) => setEmail(e.target.value)}
               />
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
                 Password
@@ -314,5 +347,65 @@ return (
     </Flex>
   );
 }
+
+function RadioCard(props) {
+  const { getInputProps, getCheckboxProps } = useRadio(props);
+  const input = getInputProps();
+  const checkbox = getCheckboxProps();
+
+  return (
+    <Box as='label'>
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor='pointer'
+        borderWidth='1px'
+        borderRadius='md'
+        boxShadow='md'
+        _checked={{
+          bg: "#FDA503",
+          color: 'white',
+          borderColor: 'teal.600',
+        }}
+        _focus={{
+          boxShadow: 'outline',
+        }}
+        px={5}
+        py={3}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
+function Example() {
+  const bgIcons = useColorModeValue("#FDA503", "rgba(255, 255, 255, 0.5)");
+  const options = ['Volunteer', 'Participant'];
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'framework',
+    defaultValue: 'react',
+    onChange: console.log,
+  });
+  const group = getRootProps();
+
+  return (
+    <HStack {...group}  spacing='15px' justify='center' mb='22px'>
+      {options.map((value) => {
+        const radio = getRadioProps({ value });
+        return (
+          <RadioCard key={value} {...radio}
+          justify='center'
+          align='center'
+          borderRadius='15px'
+          >
+            {value}
+          </RadioCard>
+        );
+      })}
+    </HStack>
+  );
+}
+
+
 
 export default SignUp;
