@@ -19,6 +19,7 @@ import {
   RocketIcon,
   SupportIcon,
 } from "components/Icons/Icons";
+import Analytics from "views/Dashboard/Analytics";
 
 var dashRoutes = [
   {
@@ -89,9 +90,8 @@ var dashRoutes = [
         path: "/data-analytics-dashboard", // data analytics dashboard
         name: "Data Analytics Dashboard",
         icon: <RocketIcon color="inherit" />,
-        secondaryNavbar: true,
-        component: SignUp,
-        layout: "/auth",
+        component: Analytics,
+        layout: "/admin",
       },
     ],
   },
