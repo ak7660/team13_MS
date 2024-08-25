@@ -43,7 +43,7 @@ const Header = ({
         position='relative'
         display='flex'
         justifyContent='center'>
-        <Flex
+        {/* <Flex
           direction={{ sm: "column", md: "row" }}
           mx='1.5rem'
           maxH='330px'
@@ -154,7 +154,7 @@ const Header = ({
               </Flex>
             </Button>
           </Flex>
-        </Flex>
+        </Flex> */}
       </Box>
     </Box>
   );
