@@ -23,7 +23,7 @@ const ChartStatistics = ({
           {title}
         </Text>
       </Flex>
-      <Text fontSize="lg" color={textColor} fontWeight="bold" mb="6px" my="6px">
+      <Text fontSize="xl" color={textColor} fontWeight="bold" mb="6px" my="6px">
         {amount}
       </Text>
       {showProgress && (

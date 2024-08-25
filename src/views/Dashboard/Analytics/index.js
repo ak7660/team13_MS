@@ -40,9 +40,15 @@ const Analytics = () => {
       attendees: 63,
       volunteers: 7,
       numOfReviews: 20,
-      ethnicityData: generateRandomData(5, 5, 50),
-      ageData: generateRandomData(6, 5, 50),
-      reviewDistribution: generateReviewDistribution(5),
+      ethnicityData: [20, 15, 10, 8, 10],  // Hardcoded ethnicity data
+      ageData: [12, 18, 10, 8, 7, 8],      // Hardcoded age data
+      reviewDistribution: [
+        { rating: 5, percentage: 50 },    // Hardcoded review distribution
+        { rating: 4, percentage: 25 },
+        { rating: 3, percentage: 15 },
+        { rating: 2, percentage: 7 },
+        { rating: 1, percentage: 3 }
+      ],
       totalReviews: 45,
       overallFeedback: "The Chai Tea Meet Up Event received high praise for its welcoming atmosphere and diverse selection of teas. Attendees appreciated the well-organized nature of the event, though some noted that the service could be improved to handle peak times better. The overall feedback highlights the event's success in creating a comfortable and enjoyable environment for social interactions.",
       feedbacks: [
@@ -74,9 +80,15 @@ const Analytics = () => {
       attendees: 38,
       volunteers: 5,
       numOfReviews: 20,
-      ethnicityData: generateRandomData(5, 5, 50),
-      ageData: generateRandomData(6, 5, 50),
-      reviewDistribution: generateReviewDistribution(5),
+      ethnicityData: [10, 12, 8, 4, 4],   // Hardcoded ethnicity data
+      ageData: [5, 8, 10, 7, 6, 5],       // Hardcoded age data
+      reviewDistribution: [
+        { rating: 5, percentage: 40 },    // Hardcoded review distribution
+        { rating: 4, percentage: 30 },
+        { rating: 3, percentage: 20 },
+        { rating: 2, percentage: 7 },
+        { rating: 1, percentage: 3 }
+      ],
       totalReviews: 30,
       overallFeedback: "The Diwali Celebration Event was marked by vibrant cultural displays and festive activities, creating an immersive experience for all attendees. While the event was celebrated for its lively atmosphere and cultural richness, feedback suggested that the food offerings could have been more varied to cater to a wider range of tastes. Overall, the event was a successful celebration of Diwali, blending tradition with modern festivities.",
       feedbacks: [
@@ -108,9 +120,15 @@ const Analytics = () => {
       attendees: 36,
       volunteers: 7,
       numOfReviews: 20,
-      ethnicityData: generateRandomData(5, 5, 50),
-      ageData: generateRandomData(6, 5, 50),
-      reviewDistribution: generateReviewDistribution(5),
+      ethnicityData: [10, 15, 7, 6, 5],  // Hardcoded ethnicity data
+      ageData: [10, 12, 8, 7, 5, 4],     // Hardcoded age data
+      reviewDistribution: [
+        { rating: 5, percentage: 35 },   // Hardcoded review distribution
+        { rating: 4, percentage: 25 },
+        { rating: 3, percentage: 20 },
+        { rating: 2, percentage: 10 },
+        { rating: 1, percentage: 10 }
+      ],
       totalReviews: 45,
       overallFeedback: "The event successfully fostered a warm and inviting environment for tea enthusiasts. The organizational aspects were generally well-received, though there were a few comments on the need for more engaging activities to enhance the overall experience. The positive aspects of the event, such as the quality of tea and the opportunity to connect with others, were frequently highlighted in the feedback.",
       feedbacks: [
@@ -142,11 +160,17 @@ const Analytics = () => {
       attendees: 20,
       volunteers: 7,
       numOfReviews: 20,
-      ethnicityData: generateRandomData(5, 5, 50),
-      ageData: generateRandomData(6, 5, 50),
-      reviewDistribution: generateReviewDistribution(5),
+      ethnicityData: [8, 12, 7, 4, 6],   // Hardcoded ethnicity data
+      ageData: [7, 10, 5, 4, 6, 2],      // Hardcoded age data
+      reviewDistribution: [
+        { rating: 5, percentage: 55 },   // Hardcoded review distribution
+        { rating: 4, percentage: 20 },
+        { rating: 3, percentage: 15 },
+        { rating: 2, percentage: 7 },
+        { rating: 1, percentage: 3 }
+      ],
       totalReviews: 45,
-      overallFeedback: "The Chai Tea Meet Up Event offered a delightful experience with its carefully selected range of teas and a well-planned agenda. While the majority of feedback was positive, some attendees suggested that the event could benefit from more interactive elements. Overall, the event was appreciated for its charm and the quality of tea provided.",
+      overallFeedback: "The New Year's Eve Party offered a delightful experience with its carefully selected range of teas and a well-planned agenda. While the majority of feedback was positive, some attendees suggested that the event could benefit from more interactive elements. Overall, the event was appreciated for its charm and the quality of tea provided.",
       feedbacks: [
         {
           userImage: "https://via.placeholder.com/150?text=User1",
@@ -167,6 +191,7 @@ const Analytics = () => {
       ],
     }
   ];
+  
   
 
   const [selectedAnalytics, setSelectedAnalytics] = React.useState(0);

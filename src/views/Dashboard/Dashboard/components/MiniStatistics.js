@@ -30,7 +30,7 @@ const MiniStatistics = ({ title, amount, percentage, icon, color }) => {
               {title}
             </StatLabel>
             <Flex>
-              <StatNumber fontSize='lg' color={color ? 'white' : textColor}>
+              <StatNumber fontSize='xl' color={color ? 'white' : textColor}>
                 {amount}
               </StatNumber>
 
