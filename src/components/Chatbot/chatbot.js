@@ -122,7 +122,7 @@ const Chatbot = () => {
                   <AiOutlineRobot className="message-icon" />
                 )}
                 <Text
-                  bg={msg.sender === 'user' ? '#216bf5' : 'gray.200'}
+                  bg={msg.sender === 'user' ? '#3a69c2' : 'gray.200'}
                   color={msg.sender === 'user' ? 'white' : 'black'}
                   p="8px"
                   borderRadius="18px"
