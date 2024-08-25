@@ -9,6 +9,7 @@ import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
 import TaskDelegation from "views/Dashboard/TaskDelegation";
 import Leaderboard from "views/Dashboard/Leaderboard";
+import { ClipboardIcon, AddIcon } from 'chakra-ui-ionicons';
 import {
   HomeIcon,
   StatsIcon,
@@ -30,7 +31,7 @@ var dashRoutes = [
   {
     path: "/events-dashboard",  // events calender page - redirect to sign up for and for check rsvp events
     name: "Events Dashboard",
-    icon: <HomeIcon color="inherit" />,
+    icon: <ClipboardIcon color="inherit" />,
     component: EventsCalendar,
     layout: "/admin",
   },
@@ -70,7 +71,7 @@ var dashRoutes = [
       {
         path: "/add-and-manage-events", // add and manage events
         name: "Add & Manage Events",
-        icon: <PersonIcon color="inherit" />,
+        icon: <AddIcon color="inherit" />,
         secondaryNavbar: true,
         component: Profile,
         layout: "/admin",

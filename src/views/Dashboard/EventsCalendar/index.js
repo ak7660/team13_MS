@@ -40,7 +40,7 @@ export default function EventsCalendar() {
           </Text> */}
           <Flex alignItems="center" justifyContent="space-between" mt={1} border="#FFD147 1px solid" borderRadius={12} pl={3} pr={5} pt={2} pb={2}>
             <Box>
-              <Text fontSize="2xl" fontWeight="bold" color="#28271F">
+              <Text fontSize="xl" fontWeight="bold" color="yellow.600">
                 Month: August 2024
               </Text>
             </Box>
@@ -86,7 +86,7 @@ export default function EventsCalendar() {
         my="-55px"
         gap="24px"
       >
-        <Box width="100%" height="600px">
+        <Box width="100%" height="auto" paddingBottom={10}>
         <CustomCalendar
           events={events.map(event => ({
             ...event,
