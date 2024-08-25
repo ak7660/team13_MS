@@ -17,6 +17,7 @@ import {
   useDisclosure,
   Checkbox,
   Stack,
+  useToast
 } from "@chakra-ui/react";
 // Custom components
 import Card from "components/Card/Card.js";
@@ -26,6 +27,7 @@ import EventSignupPopUpForm from "./EventSignupPopUpForm";
 import EventCheckInfoPopUpForm from "./EventCheckInfoPopUpForm";
 
 const EventCard = ({ event }) => {
+  const toast = useToast();
   const bgColor = event.attendStatus
     ? useColorModeValue("green.200", "green.700")  // Softer green background
     : useColorModeValue("blue.200", "blue.700");  // Softer blue background
@@ -71,6 +73,16 @@ const EventCard = ({ event }) => {
 
     console.log("Selected Slots:", selectedSlots);
     console.log("Selected Tasks:", selectedTasks);
+
+    toast({
+      title: "Event Sign Up Successful!",
+      description: "You have successfully signed up for the event.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top-right",
+    });
+    
     onClose();
   };
 
