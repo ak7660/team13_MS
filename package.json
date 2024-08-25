@@ -17,6 +17,7 @@
 		"@google-cloud/vertexai": "^1.5.0",
 		"ajv": "^8.17.1",
 		"apexcharts": "^3.27.3",
+		"chakra-ui-ionicons": "^0.3.3",
 		"classnames": "2.3.1",
 		"firebase": "^10.13.0",
 		"framer-motion": "^4.1.17",

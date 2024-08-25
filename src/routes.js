@@ -7,6 +7,7 @@ import RTLPage from "views/Dashboard/RTL";
 import Profile from "views/Dashboard/Profile";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
+import TaskDelegation from "views/Dashboard/TaskDelegation";
 
 import {
   HomeIcon,
@@ -20,7 +21,7 @@ import {
 
 var dashRoutes = [
   {
-    path: "/homepage",  // homepgae
+    path: "/homepage", // homepgae
     name: "Homepage",
     icon: <HomeIcon color="inherit" />,
     component: Dashboard,
@@ -60,7 +61,7 @@ var dashRoutes = [
     state: "pageCollapse",
     views: [
       {
-        path: "/add-and-manage-events",  // add and manage events
+        path: "/add-and-manage-events", // add and manage events
         name: "Add & Manage Events",
         icon: <PersonIcon color="inherit" />,
         secondaryNavbar: true,
@@ -68,15 +69,16 @@ var dashRoutes = [
         layout: "/admin",
       },
       {
-        path: "/signin",  
-        name: "Sign In",
+        path: "/task-delegation-system", // task delegation
+        name: "Task Delegation System",
         icon: <DocumentIcon color="inherit" />,
-        component: SignIn,
-        layout: "/auth",
+        // secondaryNavbar: true,
+        component: TaskDelegation,
+        layout: "/admin",
       },
       {
-        path: "/signup", 
-        name: "Sign Up",
+        path: "/data-analytics-dashboard", // data analytics dashboard
+        name: "Data Analytics Dashboard",
         icon: <RocketIcon color="inherit" />,
         secondaryNavbar: true,
         component: SignUp,
