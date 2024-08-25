@@ -1,6 +1,6 @@
 // Chakra imports
 import { ChakraProvider, Portal, useDisclosure } from '@chakra-ui/react';
-import Configurator from 'components/Configurator/Configurator';
+// Removed Configurator import
 import Footer from 'components/Footer/Footer.js';
 // Layout components
 import AdminNavbar from 'components/Navbars/AdminNavbar.js';
@@ -133,17 +133,7 @@ export default function Dashboard(props) {
         <Portal>
           <FixedPlugin secondary={getActiveNavbar(routes)} fixed={fixed} onOpen={onOpen} />
         </Portal>
-        <Configurator
-          secondary={getActiveNavbar(routes)}
-          isOpen={isOpen}
-          onClose={onClose}
-          isChecked={fixed}
-          onSwitch={(value) => {
-            setFixed(value);
-          }}
-          onOpaque={() => setSidebarVariant('opaque')}
-          onTransparent={() => setSidebarVariant('transparent')}
-        />
+        {/* Removed Configurator component */}
       </MainPanel>
       {/* Add the Chatbot component */}
       <Chatbot />

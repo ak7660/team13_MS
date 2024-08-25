@@ -1,7 +1,7 @@
 // Chakra Imports
 import { Button, useColorModeValue, Text } from "@chakra-ui/react";
 // Custom Icons
-import { SettingsIcon } from "components/Icons/Icons";
+// import { SettingsIcon } from "components/Icons/Icons";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -30,6 +30,7 @@ export default function FixedPlugin(props) {
         bottom="30px"
         borderRadius="50px"
         boxShadow="0 2px 12px 0 rgb(0 0 0 / 16%)"
+        display="none" // This will hide the button
       >
         <Text>AI</Text>
         {/* <SettingsIcon
