@@ -72,7 +72,7 @@ export default function Dashboard() {
             title={"You have feedback to complete"}
             amount={"5"}
             percentage={-14}
-            color={'#90cef4'}
+            color={'#3a69c2'}
             icon={<DocumentIcon h={"24px"} w={"24px"} color={'#90cef4'}
             />}
           />

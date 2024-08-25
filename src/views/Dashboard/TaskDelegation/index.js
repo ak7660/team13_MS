@@ -3,6 +3,8 @@ import { Flex, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 import EventDiwali from "assets/img/EventDiwali.png";
 import ProfileBgImage from "assets/img/ProfileBackground.png";
 import React from "react";
+import { eventsData } from "variables/general";
+import { PencilIcon } from "chakra-ui-ionicons";
 
 import { DocumentIcon, PeopleIcon, FolderOpenIcon } from "chakra-ui-ionicons";
 
@@ -12,6 +14,7 @@ import ParticipantsReminder from "./components/ParticipantsReminder";
 import Header from "./components/Header";
 import ProjectOverview from "./components/ProjectOverview";
 import ParticipantsEnquiries from "./components/ParticipantsEnquiries";
+import CardEvents from "./components/CardEvents";
 
 function VolunteerParticipant() {
   return (
@@ -33,12 +36,50 @@ function TaskDelegation() {
 
   return (
     <Flex direction="column" gap="8" marginTop={"8%"}>
+      <Flex gap={2}>
+        {eventsData.map((event, index) => {
+          const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            return `${day} ${month} ${year}`;
+          };
+
+          const date = formatDate(event.dateTimeStart);
+
+          return (
+            <CardEvents
+              key={index}
+              title={event.eventName}
+              amount={date}
+              icon={<PencilIcon h={"24px"} w={"24px"} color={"white"} />}
+              taskIdx={index}
+            />
+          );
+        })}
+      </Flex>
+
       <Header
         backgroundHeader={ProfileBgImage}
         backgroundProfile={bgProfile}
         avatarImage={EventDiwali}
         name={"Diwali Day Celebration 2024"}
-        email={"31 October 2024"}
+        email={"30 October 2024"}
         desc={
           "Celebrate your Diwali with us! Come help us to arrange the event and meet the likeminded people!"
         }
@@ -62,7 +103,7 @@ function TaskDelegation() {
       <Grid templateColumns={{ sm: "1fr", xl: "repeat(12, 1fr)" }} gap="22px">
         <GridItem colSpan={7}>
           <ProjectOverview
-            title="Project Overview"
+            title="Event Overview"
             taskDone={20}
             taskOutstanding={10}
           />
