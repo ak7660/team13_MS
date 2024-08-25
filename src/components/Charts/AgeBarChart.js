@@ -55,6 +55,7 @@ class AgeBarChart extends React.Component {
             }
           }
         },
+        colors: ['#f2d069'],
         legend: {
           fontSize: '10px', // Adjust the font size of the legend
           position: 'bottom'

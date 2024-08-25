@@ -5,12 +5,15 @@ import EventCard from "./components/EventCard";
 import EventAnalytics from "./components/EventAnalytics";
 import Navbar from "./components/Navbar";
 import GeneralAnalytics from "./components/GeneralAnalytics";
+import DiwaliImage from "assets/img/EventDiwali.png";
+import ChaiImage from "assets/img/chai.png";
+
 
 const Analytics = () => {
   const events = [
     {
       name: "Chai Tea Meet Up Event",
-      image: "https://via.placeholder.com/150",
+      image: ChaiImage,
       startTime: "17/05/2024",
       endTime: "18/05/2024",
       location: "Wan Chai",
@@ -20,8 +23,8 @@ const Analytics = () => {
       numOfReviews: 20,
     },
     {
-      name: "Chai Tea Meet Up Event",
-      image: "https://via.placeholder.com/150",
+      name: "Diwali Celebration Event",
+      image: DiwaliImage,
       startTime: "17/05/2024",
       endTime: "18/05/2024",
       location: "Wan Chai",
@@ -57,6 +60,7 @@ const Analytics = () => {
   const [selectedAnalytics, setSelectedAnalytics] = React.useState(0);
 
   const [selectedEventIndex, setSelectedEventIndex] = React.useState(0);
+  
   return (
     <div>
       <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
@@ -67,7 +71,7 @@ const Analytics = () => {
         {selectedAnalytics === 0 ? (
           <GeneralAnalytics />
         ) : (
-          <Grid templateColumns="40% 60%" gap="20px">
+          <Grid templateColumns="30% 70%" gap="20px">
             <GridItem
               display="flex"
               flexDirection="column"

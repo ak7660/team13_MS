@@ -34,7 +34,7 @@ const EventCard = ({ data, selected }) => {
   return (
     <Card p="0px" overflowX={{ sm: "scroll", xl: "hidden" }} maxWidth="30rem" w="100%" boxShadow={selected ? "xl" : "lg"}>
       <Image
-        src={peopleImage}
+        src={data.image}
         alt="chakra image"
         w="100%"
         h="8rem"
@@ -75,7 +75,7 @@ const EventCard = ({ data, selected }) => {
               title={"Volunteers"}
               amount={data.volunteers}
               percentage={80}
-              icon={<StarIcon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside} />}
+              icon={<Icon h={"0.8rem"} w={"0.8rem"} as={FaHandshake} color={iconBoxInside} />}
               showProgress={false}
             />
             

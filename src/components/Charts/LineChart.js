@@ -8,7 +8,12 @@ class LineChart extends React.Component {
 
     this.state = {
       chartData: [],
-      chartOptions: {},
+      chartOptions: {
+        stroke: {
+          curve: "smooth",
+          colors: ["#FFD147"], // Set the line color to #FFD147
+        },
+      },
     };
   }
 
