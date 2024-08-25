@@ -1,4 +1,4 @@
-# [Zubin Connect]()
+# [ZubinConnect]()
 
 ![Product Gif](assets/screenshot.jpeg)
 
