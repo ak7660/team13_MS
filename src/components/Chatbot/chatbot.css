@@ -15,7 +15,7 @@
 
 /* Chatbot Header with Larger Circle Icon */
 .chatbot-header {
-    background-color: #FFD147; /* Changed from blue to #FFD147 */
+    background-color: #3a69c2; /* Changed from blue to #FFD147 */
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -57,7 +57,7 @@
 }
 
 .message.user {
-    background-color: #FFD147; /* Changed from blue to #FFD147 */
+    background-color: #3a69c2; /* Changed from blue to #FFD147 */
     color: white;
     align-self: flex-end;
     text-align: right;
@@ -95,7 +95,7 @@
 
 .chatbot-input button {
     padding: 10px 16px;
-    background-color: #FFD147; /* Changed from blue to #FFD147 */
+    background-color: #3a69c2; /* Changed from blue to #FFD147 */
     color: white;
     border: none;
     border-radius: 20px;

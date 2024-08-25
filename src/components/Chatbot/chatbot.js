@@ -80,14 +80,14 @@ const Chatbot = () => {
     >
       <Box
         className="chatbot-header"
-        bg="#FFD147"
+        bg="#3a69c2"
         p="10px"
         color="white"
         textAlign="center"
         cursor="pointer"
         borderRadius="50%"
-        width="60px"
-        height="60px"
+        width="70px"
+        height="70px"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -122,7 +122,7 @@ const Chatbot = () => {
                   <AiOutlineRobot className="message-icon" />
                 )}
                 <Text
-                  bg={msg.sender === 'user' ? '#FFD147' : 'gray.200'}
+                  bg={msg.sender === 'user' ? '#216bf5' : 'gray.200'}
                   color={msg.sender === 'user' ? 'white' : 'black'}
                   p="8px"
                   borderRadius="18px"
@@ -146,7 +146,7 @@ const Chatbot = () => {
               flex="1"
               onKeyDown={handleKeyDown}
             />
-            <Button onClick={handleMessageSend} bg="#FFD147" color="white" borderRadius="md">
+            <Button onClick={handleMessageSend} bg="#216bf5" color="white" borderRadius="md">
               Send
             </Button>
           </HStack>
