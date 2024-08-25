@@ -52,7 +52,7 @@ Let us know your thoughts below. And good luck with development!
 Within the download you'll find the following directories and files:
 
 ```
-purity-ui-dashboard/
+team13_MS/
 ├── .gitattributes
 ├── .gitigonore
 ├── CHANGELOG.md
