@@ -201,7 +201,7 @@ const SidebarContent = ({ logoText, routes }) => {
           <Stack direction="column" mb="40px">
             <Box>{links}</Box>
           </Stack>
-          <SidebarHelp />
+          {/* <SidebarHelp /> */}
     </>
   )
 }
