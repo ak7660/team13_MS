@@ -9,6 +9,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import {
+  ZubinFoundationLogo,
   CreativeTimLogo,
   DocumentIcon,
   HomeIcon,
@@ -20,6 +21,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "routes.js";
+import logo from "assets/apple-icon.png"
 export default function AuthNavbar(props) {
   const [open, setOpen] = React.useState(false);
   const handleDrawerToggle = () => {
@@ -31,46 +33,24 @@ export default function AuthNavbar(props) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   };
   // Chakra color mode
-  let navbarIcon = useColorModeValue("gray.700", "gray.200");
-  let mainText = useColorModeValue("gray.700", "gray.200");
-  let navbarBg = useColorModeValue(
-    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
-    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
-  );
-  let navbarBorder = useColorModeValue(
-    "1.5px solid #FFFFFF",
-    "1.5px solid rgba(255, 255, 255, 0.31)"
-  );
-  let navbarShadow = useColorModeValue(
-    "0px 7px 23px rgba(0, 0, 0, 0.05)",
-    "none"
-  );
-  let navbarFilter = useColorModeValue(
-    "none",
-    "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
-  );
+  let navbarIcon = "black";
+  let mainText = "black";
+  let navbarBg = "white";
+  let navbarBorder = "2px solid";
+  let navbarShadow = "0px 7px 23px rgba(0, 0, 0, 0.05)";
+  let navbarFilter = "none";
   let navbarBackdrop = "blur(21px)";
-  let bgButton = useColorModeValue(
-    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
-    "gray.800"
-  );
+  let bgButton = "white";
   let navbarPosition = "fixed";
-  let colorButton = "white";
+  let colorButton = "black";
+  let navBorderColor = "#FCA503"
   if (props.secondary === true) {
-    navbarIcon = "white";
-    navbarBg = "none";
-    navbarBorder = "none";
-    navbarShadow = "initial";
-    navbarFilter = "initial";
-    navbarBackdrop = "none";
-    bgButton = "white";
-    colorButton = "gray.700";
-    mainText = "white";
     navbarPosition = "absolute";
   }
+  //${process.env.PUBLIC_URL}/#/
   var brand = (
     <Link
-      href={`${process.env.PUBLIC_URL}/#/`}
+      href={`https://www.zubinfoundation.org/`} 
       target="_blank"
       display="flex"
       lineHeight="100%"
@@ -79,7 +59,7 @@ export default function AuthNavbar(props) {
       alignItems="center"
       color={mainText}
     >
-      <CreativeTimLogo w="32px" h="32px" me="10px" />
+      <img src={logo} alt="Zubin Foundation Logo" width="32px" height="32px" style={{ marginRight: "10px" }} />
       <Text fontSize="sm" mt="3px">
         {logoText}
       </Text>
@@ -101,23 +81,7 @@ export default function AuthNavbar(props) {
           <Text>Dashboard</Text>
         </Button>
       </NavLink>
-      <NavLink to="/admin/profile">
-        <Button
-          fontSize="sm"
-          ms="0px"
-          me="0px"
-          px="0px"
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant="transparent-with-icon"
-          leftIcon={
-            <PersonIcon color={navbarIcon} w="12px" h="12px" me="0px" />
-          }
-        >
-          <Text>Profile</Text>
-        </Button>
-      </NavLink>
-      <NavLink to="/auth/signup">
+      <NavLink to="/auth/signin">
         <Button
           fontSize="sm"
           ms="0px"
@@ -130,10 +94,10 @@ export default function AuthNavbar(props) {
             <RocketIcon color={navbarIcon} w="12px" h="12px" me="0px" />
           }
         >
-          <Text>Sign Up</Text>
+          <Text>Sign In</Text>
         </Button>
       </NavLink>
-      <NavLink to="/auth/signin">
+      <NavLink to="/auth/signup">
         <Button
           fontSize="sm"
           ms="0px"
@@ -145,7 +109,7 @@ export default function AuthNavbar(props) {
             <DocumentIcon color={navbarIcon} w="12px" h="12px" me="0px" />
           }
         >
-          <Text>Sign In</Text>
+          <Text>Sign Up</Text>
         </Button>
       </NavLink>
     </HStack>
@@ -162,6 +126,7 @@ export default function AuthNavbar(props) {
       filter={navbarFilter}
       backdropFilter={navbarBackdrop}
       borderRadius="15px"
+      borderColor={navBorderColor}
       px="16px"
       py="22px"
       mx="auto"
@@ -184,7 +149,7 @@ export default function AuthNavbar(props) {
           />
         </Box>
         {linksAuth}
-        <Link href="https://creative-tim.com/product/purity-ui-dashboard">
+        <Link href="https://wa.me/85225409488"> 
           <Button
             bg={bgButton}
             color={colorButton}
@@ -197,7 +162,7 @@ export default function AuthNavbar(props) {
               lg: "flex",
             }}
           >
-            Free Download
+            Contact Us
           </Button>
         </Link>
       </Flex>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // Chakra imports
 import {
   Box,
@@ -14,12 +14,32 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
-import signInImage from "assets/img/signInImage.png";
+import signInImage from "assets/img/SignInImage2.png";
+import { Link as RouterLink} from "react-router-dom/cjs/react-router-dom";
+import {auth} from "../../config/firebaseConfig"
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   // Chakra color mode
-  const titleColor = useColorModeValue("teal.300", "teal.200");
-  const textColor = useColorModeValue("gray.400", "white");
+  const titleColor = "#FFD147";
+  const textColor = "#28271f";
+
+  const signingIn = (e) => {
+  e.preventDefault();
+  setError(''); // Clear previous error
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential);
+      // If you need to set user properties, define the function here or remove this comment
+    })
+    .catch((error) => {
+      console.log(error);
+      setError(error.message); // Set error message
+    });
+};
   return (
     <Flex position='relative' mb='40px'>
       <Flex
@@ -38,9 +58,11 @@ function SignIn() {
           <Flex
             direction='column'
             w='100%'
-            background='transparent'
             p='48px'
-            mt={{ md: "150px", lg: "80px" }}>
+            mt={{ md: "150px", lg: "80px" }}
+            borderRadius="15px"
+            border="3px solid"
+            borderColor="#FDA503">
             <Heading color={titleColor} fontSize='32px' mb='10px'>
               Welcome Back
             </Heading>
@@ -52,57 +74,61 @@ function SignIn() {
               fontSize='14px'>
               Enter your email and password to sign in
             </Text>
-            <FormControl>
-              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                Email
-              </FormLabel>
-              <Input
-                borderRadius='15px'
-                mb='24px'
-                fontSize='sm'
-                type='text'
-                placeholder='Your email adress'
-                size='lg'
-              />
-              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                Password
-              </FormLabel>
-              <Input
-                borderRadius='15px'
-                mb='36px'
-                fontSize='sm'
-                type='password'
-                placeholder='Your password'
-                size='lg'
-              />
-              <FormControl display='flex' alignItems='center'>
-                <Switch id='remember-login' colorScheme='teal' me='10px' />
-                <FormLabel
-                  htmlFor='remember-login'
-                  mb='0'
-                  ms='1'
-                  fontWeight='normal'>
-                  Remember me
+            <form onSubmit={signingIn}>
+              <FormControl>
+                <FormLabel ms='4px' fontSize='sm' fontWeight='normal' color = {textColor}>
+                  Email
                 </FormLabel>
+                <Input
+                  borderRadius='15px'
+                  mb='24px'
+                  fontSize='sm'
+                  type='text'
+                  placeholder='Your email adress'
+                  size='lg'
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+                  Password
+                </FormLabel>
+                <Input
+                  borderRadius='15px'
+                  mb='36px'
+                  fontSize='sm'
+                  type='password'
+                  placeholder='Your password'
+                  size='lg'
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <FormControl display='flex' alignItems='center'>
+                  <Switch id='remember-login' colorScheme='teal' me='10px' />
+                  <FormLabel
+                    htmlFor='remember-login'
+                    mb='0'
+                    ms='1'
+                    fontWeight='normal'>
+                    Remember me
+                  </FormLabel>
+                </FormControl>
+                <Button
+                  fontSize='10px'
+                  type='submit'
+                  bg='#fdc968'
+                  w='100%'
+                  h='45'
+                  mb='20px'
+                  color='white'
+                  mt='20px'
+                  _hover={{
+                    bg: "#fedb9a",
+                  }}
+                  _active={{
+                    bg: "#fca503",
+                  }}>
+                  SIGN IN
+                </Button>
               </FormControl>
-              <Button
-                fontSize='10px'
-                type='submit'
-                bg='teal.300'
-                w='100%'
-                h='45'
-                mb='20px'
-                color='white'
-                mt='20px'
-                _hover={{
-                  bg: "teal.200",
-                }}
-                _active={{
-                  bg: "teal.400",
-                }}>
-                SIGN IN
-              </Button>
-            </FormControl>
+            </form>
             <Flex
               flexDirection='column'
               justifyContent='center'
@@ -111,9 +137,15 @@ function SignIn() {
               mt='0px'>
               <Text color={textColor} fontWeight='medium'>
                 Don't have an account?
-                <Link color={titleColor} as='span' ms='5px' fontWeight='bold'>
+                <RouterLink
+                to = "/auth/signup"
+                style={{
+                  color: "#FCA503",
+                  marginLeft: '5px',
+                  fontWeight: 'bold'
+                }}>
                   Sign Up
-                </Link>
+                </RouterLink>
               </Text>
             </Flex>
           </Flex>
