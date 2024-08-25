@@ -1,5 +1,5 @@
 import { QuestionIcon } from "@chakra-ui/icons";
-import { Button, Flex, Link, Text } from "@chakra-ui/react";
+import { Button, Flex, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import SidebarHelpImage from "assets/img/SidebarHelpImage.png";
 import IconBox from "components/Icons/IconBox";
 import React from "react";
@@ -7,11 +7,15 @@ import React from "react";
 export function SidebarHelp(props) {
   // Pass the computed styles into the `__css` prop
   const { children, ...rest } = props;
+  const bgProfile = useColorModeValue(
+    "linear-gradient(135deg, #fca503, #ffd147)",
+    "linear-gradient(112.83deg, rgba(255, 209, 71, 0.21) 0%, rgba(255, 209, 71, 0) 110.84%)"
+  );
   return (
     <Flex
       borderRadius="15px"
       flexDirection="column"
-      bgImage={SidebarHelpImage}
+      bg={bgProfile}
       justifyContent="flex-start"
       alignItems="start"
       boxSize="border-box"
@@ -20,7 +24,7 @@ export function SidebarHelp(props) {
       w="100%"
     >
       <IconBox width="35px" h="35px" bg="white" mb="auto">
-        <QuestionIcon color="teal.300" h="18px" w="18px" />
+        <QuestionIcon color="orange.300" h="18px" w="18px" />
       </IconBox>
       <Text fontSize="sm" color="white" fontWeight="bold">
         Need help?

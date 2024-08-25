@@ -3,18 +3,19 @@
 import {
     Box,
     Button, Flex,
+    Image,
     Link,
     Stack,
     Text,
     useColorModeValue
 } from "@chakra-ui/react";
 import IconBox from "components/Icons/IconBox";
-import { CreativeTimLogo } from "components/Icons/Icons";
+import { zubinFoundationLogo } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
 import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import mainlogo from "../../assets/img/favicon.ico"
 // this function creates the links and collapses that appear in the sidebar (left menu)
 
 
@@ -102,7 +103,7 @@ const SidebarContent = ({ logoText, routes }) => {
                   <Icon>{prop.icon}</Icon>
                 ) : (
                   <IconBox
-                    bg="teal.300"
+                    bg="orange.300"
                     color="white"
                     h="30px"
                     w="30px"
@@ -153,7 +154,7 @@ const SidebarContent = ({ logoText, routes }) => {
                 ) : (
                   <IconBox
                     bg={inactiveBg}
-                    color="teal.300"
+                    color="orange.300"
                     h="30px"
                     w="30px"
                     me="12px"
@@ -190,8 +191,8 @@ const SidebarContent = ({ logoText, routes }) => {
         alignItems="center"
         fontSize="11px"
       >
-        <CreativeTimLogo w="32px" h="32px" me="10px" />
-        <Text fontSize="sm" mt="3px">
+        <Image src={mainlogo} w="50px" h="50px" me="10px" alt="Logo" />
+        <Text fontSize="xl" mt="2px">
           {logoText}
         </Text>
       </Link>

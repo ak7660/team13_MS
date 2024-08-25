@@ -66,6 +66,11 @@ export const ClockIcon = createIcon({
     </g>
   ),
 });
+export const ZubinFoundationLogo = createIcon({
+  displayName : "ZubinFoundationLogo",
+  viewBox: "0 0 100 100",
+  path: "assets/favicon.ico"
+})
 export const CreativeTimLogo = createIcon({
   displayName: "CreativeTimLogo",
   viewBox: "0 0 100 100",

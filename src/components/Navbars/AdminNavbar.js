@@ -143,7 +143,7 @@ export default function AdminNavbar(props) {
               boxShadow: "none",
             }}
           >
-            {brandText}
+            {/* {brandText} */}
           </Link>
         </Box>
         <Box ms="auto" w={{ sm: "100%", md: "unset" }}>

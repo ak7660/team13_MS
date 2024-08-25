@@ -26,7 +26,7 @@ const Header = ({
   const emailColor = useColorModeValue("gray.400", "gray.300");
   return (
     <Box
-      mb={{ sm: "205px", md: "75px", xl: "70px" }}
+      mb={{ sm: "205px", md: "40px", xl: "40px" }}
       borderRadius='15px'
       px='0px'
       display='flex'
@@ -36,14 +36,14 @@ const Header = ({
       <Box
         bgImage={backgroundHeader}
         w='100%'
-        h='300px'
+        h='100px'
         borderRadius='25px'
         bgPosition='50%'
         bgRepeat='no-repeat'
         position='relative'
         display='flex'
         justifyContent='center'>
-        <Flex
+        {/* <Flex
           direction={{ sm: "column", md: "row" }}
           mx='1.5rem'
           maxH='330px'
@@ -154,7 +154,7 @@ const Header = ({
               </Flex>
             </Button>
           </Flex>
-        </Flex>
+        </Flex> */}
       </Box>
     </Box>
   );

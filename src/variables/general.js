@@ -32,45 +32,39 @@ import { SiDropbox } from "react-icons/si";
 export const dashboardTableData = [
   {
     logo: AdobexdLogo,
-    name: "Purity UI Version",
+    name: "Anya",
     members: [avatar1, avatar2, avatar3, avatar4, avatar5],
-    budget: "$14,000",
-    progression: 60,
+    budget: "1",
   },
   {
     logo: AtlassianLogo,
-    name: "Add Progress Track",
+    name: "Shah Jahan",
     members: [avatar3, avatar2],
-    budget: "$3,000",
-    progression: 10,
+    budget: "2",
   },
   {
     logo: SlackLogo,
-    name: "Fix Platform Errors",
+    name: "Mario Luigi",
     members: [avatar10, avatar4],
-    budget: "Not set",
-    progression: 100,
+    budget: "3",
   },
   {
     logo: SpotifyLogo,
-    name: "Launch our Mobile App",
+    name: "Wasif",
     members: [avatar2, avatar3, avatar7, avatar8],
-    budget: "$32,000",
-    progression: 100,
+    budget: "4",
   },
   {
     logo: JiraLogo,
-    name: "Add the New Pricing Page",
+    name: "Morgan",
     members: [avatar10, avatar3, avatar7, avatar2, avatar8],
-    budget: "$400",
-    progression: 25,
+    budget: "5",
   },
   {
     logo: InvisionLogo,
-    name: "Redesign New Online Shop",
+    name: "St Jane",
     members: [avatar9, avatar3, avatar2],
-    budget: "$7,600",
-    progression: 40,
+    budget: "6",
   },
 ];
 
@@ -326,6 +320,136 @@ export const invoicesData = [
     format: "PDF",
   },
 ];
+
+export const eventsData = 
+[
+  {
+    eventId: "axym1283hsnausXX",
+    eventName: "Diwali Night 2024",
+    eventDescription: "Description of the Diwali event...",
+    dateTimeStart: "2024-10-30 18:00",
+    dateTimeEnd: "2024-10-30 22:00",
+    numOfSessions: "1",
+    numOfParticipant: 39,
+    quotaParticipant: 40,
+    location: "Unit 5F, High Fashion Centre, No. 1 Kwai Hei Street, Kwai Chung, Hong Kong",
+    requiredTask: [
+      {
+        task: "Setup",
+        startTime: "2024-10-30 18:00",
+        endTime: "2024-10-30 19:00",
+        volunteer: 3,
+        quotaVolunteer: 5
+      },
+      {
+        task: "Food Service",
+        startTime: "2024-10-30 19:00",
+        endTime: "2024-10-30 20:00",
+        volunteer: 3,
+        quotaVolunteer: 7
+      },
+      {
+        task: "Registration",
+        startTime: "2024-10-30 20:00",
+        endTime: "2024-10-30 21:00",
+        volunteer: 3,
+        quotaVolunteer: 3
+      },
+      {
+        task: "Cleanup",
+        startTime: "2024-10-30 21:00",
+        endTime: "2024-10-30 22:00",
+        volunteer: 9,
+        quotaVolunteer: 15
+      }
+    ],
+    trainingMaterials: ["https://www.youtube.com/watch?v=I-XjdcpfXoI"]
+  },
+  {
+    eventId: "event2ID",
+    eventName: "Eid Mubarak 2025",
+    eventDescription: "Description of the Eid Mubarak event...",
+    dateTimeStart: "2024-02-01 17:00",
+    dateTimeEnd: "2024-02-01 21:00",
+    numOfSessions: "1",
+    numOfParticipant: 30,
+    quotaParticipant: 35,
+    location: "123 Main Street, Anytown, USA",
+    requiredTask: [
+      {
+        task: "Setup",
+        startTime: "2024-02-01 17:00",
+        endTime: "2024-02-01 18:00",
+        volunteer: 2,
+        quotaVolunteer: 4
+      },
+      {
+        task: "Food Service",
+        startTime: "2024-02-01 18:00",
+        endTime: "2024-02-01 19:00",
+        volunteer: 3,
+        quotaVolunteer: 6
+      },
+      {
+        task: "Entertainment",
+        startTime: "2024-02-01 19:00",
+        endTime: "2024-02-01 20:00",
+        volunteer: 5,
+        quotaVolunteer: 5
+      },
+      {
+        task: "Cleanup",
+        startTime: "2024-02-01 20:00",
+        endTime: "2024-02-01 21:00",
+        volunteer: 5,
+        quotaVolunteer: 10
+      }
+    ],
+    trainingMaterials: ["https://www.youtube.com/watch?v=I-XjdcpfXoI"]
+  },
+  {
+    eventId: "event3ID",
+    eventName: "Chai Tea Making Workshop",
+    eventDescription: "Description of the Chai Tea event...",
+    dateTimeStart: "2024-06-30 12:00",
+    dateTimeEnd: "2024-06-30 16:00",
+    numOfSessions: "1",
+    numOfParticipant: 100,
+    quotaParticipant: 120,
+    location: "Central Park, New York, USA",
+    requiredTask: [
+      {
+        task: "Setup",
+        startTime: "2024-06-30 12:00",
+        endTime: "2024-06-30 13:00",
+        volunteer: 5,
+        quotaVolunteer: 7
+      },
+      {
+        task: "Crowd Control",
+        startTime: "2024-06-30 13:00",
+        endTime: "2024-06-30 14:00",
+        volunteer: 8,
+        quotaVolunteer: 10
+      },
+      {
+        task: "Parade Marshals",
+        startTime: "2024-06-30 14:00",
+        endTime: "2024-06-30 15:00",
+        volunteer: 6,
+        quotaVolunteer: 8
+      },
+      {
+        task: "Cleanup",
+        startTime: "2024-06-30 15:00",
+        endTime: "2024-06-30 16:00",
+        volunteer: 6,
+        quotaVolunteer: 10
+      }
+    ],
+    trainingMaterials: ["https://www.youtube.com/watch?v=I-XjdcpfXoI"]
+  }
+]
 
 export const billingData = [
   {

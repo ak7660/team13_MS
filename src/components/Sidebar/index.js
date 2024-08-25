@@ -48,7 +48,7 @@ function Sidebar(props) {
           borderRadius={sidebarRadius}
         >
           <SidebarContent routes={routes}
-        logoText={"ZUBIN FOUNDATION"}
+        logoText={"ZubinConnect"}
         display="none"
         sidebarVariant={sidebarVariant}
         />

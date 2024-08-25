@@ -5,6 +5,7 @@ import {
   Grid,
   Icon,
   Text,
+  Box,
   useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
@@ -18,73 +19,72 @@ import imageArchitect3 from "assets/img/ImageArchitect3.png";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
-import React from "react";
+import React, {useState} from "react";
 import { FaPlus } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
+import { eventsData } from "variables/general";
+import EventCard from "./EventCard";
+import EditEventModal from "./EditEventModal";
+import { DeleteIcon , EditIcon, AddIcon } from '@chakra-ui/icons'
+import EventModal from "./EventModal";
 
 const Projects = ({ title, description }) => {
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
+  const [isAdd, setIsAdd] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleEdit = (event) => {
+      setIsEditing(true);
+      setSelectedEvent(event);
+  };
+
+  const handleCloseEdit = () => {
+      setIsEditing(false);
+  };
+
+  const handleAdd = () => {
+    setIsAdd(true);
+  };
+
+  const handleCloseAdd = () => {
+    setIsAdd(false);
+  };
 
   return (
     <Card p='16px' my='24px'>
       <CardHeader p='12px 5px' mb='12px'>
-        <Flex direction='column'>
+        <Flex w={"100%"}>
           <Text fontSize='lg' color={textColor} fontWeight='bold'>
             {title}
           </Text>
-          <Text fontSize='sm' color='gray.500' fontWeight='400'>
-            {description}
-          </Text>
+          <Button marginLeft="auto" leftIcon={<AddIcon />} fontSize='sm' colorScheme="orange" variant="solid" onClick={handleAdd}>
+            Add event
+          </Button>
+          <EventModal isOpen={isAdd} onClose={handleCloseAdd} />
         </Flex>
       </CardHeader>
       <CardBody px='5px'>
-        <Grid
-          templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
-          templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
-          gap='24px'>
-          <ProjectCard
-            image={imageArchitect1}
-            name={"Project #1"}
-            category={"Modern"}
-            description={
-              "As Uber works through a huge amount of internal management turmoil."
-            }
-            avatars={[avatar2, avatar4, avatar6]}
-          />
-          <ProjectCard
-            image={imageArchitect2}
-            name={"Project #2"}
-            category={"Scandinavian"}
-            description={
-              "Music is something that every person has his or her own specific opinion about."
-            }
-            avatars={[avatar4, avatar2, avatar6, avatar4]}
-          />
-          <ProjectCard
-            image={imageArchitect3}
-            name={"Project #3"}
-            category={"Minimalist"}
-            description={
-              "Different people have different taste, especially various types of music."
-            }
-            avatars={[avatar2, avatar4, avatar6]}
-          />
-          <Button
-            p='0px'
-            bg='transparent'
-            color='gray.500'
-            border='1px solid lightgray'
-            borderRadius='15px'
-            minHeight={{ sm: "200px", md: "100%" }}>
-            <Flex direction='column' justifyContent='center' align='center'>
-              <Icon as={FaPlus} fontSize='lg' mb='12px' />
-              <Text fontSize='lg' fontWeight='bold'>
-                Create a New Project
-              </Text>
-            </Flex>
-          </Button>
-        </Grid>
+        <Flex direction='column' w={"100%"}>
+          {eventsData.map((events) => {
+            const totalVolunteers = (events.requiredTask && events.requiredTask.reduce) ? events.requiredTask.reduce((acc, curr) => acc + curr.volunteer, 0) : 0;
+            const totalQuotaVolunteers = (events.requiredTask && events.requiredTask.reduce) ? events.requiredTask.reduce((acc, curr) => acc + curr.quotaVolunteer, 0) : 0;
+            return (
+              <EventCard 
+                dateTimeString={events.dateTimeStart}
+                name={events.eventName}
+                numOfVolunteer={totalVolunteers}
+                quotaVolunteer={totalQuotaVolunteers}
+                numOfParticipant={events.numOfParticipant}
+                quotaParticipant={events.quotaParticipant} 
+                location={events.location}
+                onEdit={() => handleEdit(events)}
+              />
+            )
+          })}
+          <EditEventModal isOpen={isEditing} onClose={handleCloseEdit} event={selectedEvent} />
+        </Flex>
       </CardBody>
     </Card>
   );

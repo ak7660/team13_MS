@@ -80,7 +80,7 @@ export default function Pages(props) {
 		<ChakraProvider theme={theme} resetCss={false} w='100%'>
 			<Box ref={navRef} w='100%'>
 				<Portal containerRef={navRef}>
-					<AuthNavbar secondary={getActiveNavbar(routes)} logoText='PURITY UI DASHBOARD' />
+					<AuthNavbar secondary={getActiveNavbar(routes)} logoText='Zubin Connect' />
 				</Portal>
 				<Box w='100%'>
 					<Box ref={wrapper} w='100%'>
@@ -90,9 +90,9 @@ export default function Pages(props) {
 						</Switch>
 					</Box>
 				</Box>
-				<Box px='24px' mx='auto' width='1044px' maxW='100%'>
+				{/* <Box px='24px' mx='auto' width='1044px' maxW='100%'>
 					<Footer />
-				</Box>
+				</Box> */}
 			</Box>
 		</ChakraProvider>
 	);

@@ -1,122 +1,99 @@
 // Chakra imports
 import {
+  Box,
   Flex,
   Grid,
   Image,
   SimpleGrid,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-// assets
-import peopleImage from "assets/img/people-image.png";
-import logoChakra from "assets/svg/logo-white.svg";
-import BarChart from "components/Charts/BarChart";
-import LineChart from "components/Charts/LineChart";
-// Custom icons
-import {
-  CartIcon,
-  DocumentIcon,
-  GlobeIcon,
-  WalletIcon,
-} from "components/Icons/Icons.js";
-import React from "react";
-import { dashboardTableData, timelineData } from "variables/general";
-import ActiveUsers from "./components/ActiveUsers";
-import BuiltByDevelopers from "./components/BuiltByDevelopers";
-import MiniStatistics from "./components/MiniStatistics";
-import OrdersOverview from "./components/OrdersOverview";
-import Projects from "./components/Projects";
-import SalesOverview from "./components/SalesOverview";
-import WorkWithTheRockets from "./components/WorkWithTheRockets";
+import React, { useState } from "react";
+import "react-big-calendar/lib/css/react-big-calendar.css"; // Import the CSS
+import CustomCalendar from "./components/CustomCalendar";
+import {events as initialEvents} from "./events";
 
 export default function EventsCalendar() {
   const iconBoxInside = useColorModeValue("white", "white");
+  const [events, setEvents] = useState(initialEvents);
+
+  const handleUpdateAttendStatus = (eventId, newStatus) => {
+    setEvents((prevEvents) =>
+        prevEvents.map((evt) =>
+            evt.eventId === eventId ? { ...evt, attendStatus: newStatus } : evt
+        )
+    );
+  };  
 
   return (
-    <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
-        <MiniStatistics
-          title={"Today's Moneys"}
-          amount={"$53,000"}
-          percentage={55}
-          icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Today's Users"}
-          amount={"2,300"}
-          percentage={5}
-          icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"New Clients"}
-          amount={"+3,020"}
-          percentage={-14}
-          icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Total Sales"}
-          amount={"$173,000"}
-          percentage={8}
-          icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
+    <Flex flexDirection='column' pt={{ base: "80px", md: "75px" }}>
+      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing=''>
+        <Box gridColumn="span 4" textAlign="celeftnter">
+          <Text fontSize="3xl" fontWeight="bold" color="#d19e06">
+            Events Dashboard
+          </Text>
+          <Text fontSize="lg" fontWeight="" color="#28271F" mb="4">
+            Find events near you from our exclusive calendar. Sign up to help in our events and be at the top of our leaderboards! 
+          </Text>
+          {/* <Text fontSize="lg" fontWeight="" color="#28271F">
+            Find your delegated tasks for existing events and mark them as complete when done to earn points!
+          </Text> */}
+          <Flex alignItems="center" justifyContent="space-between" mt={1} border="#FFD147 1px solid" borderRadius={12} pl={3} pr={5} pt={2} pb={2}>
+            <Box>
+              <Text fontSize="2xl" fontWeight="bold" color="#28271F">
+                Month: August 2024
+              </Text>
+            </Box>
+            <Flex alignItems="center">
+              <Box display="flex" alignItems="center" mr={4}>
+                <Box width="15px" height="15px" bg="green.300" mr={2} borderRadius="md"></Box>
+                <Text color="#28271F">Attending</Text>
+              </Box>
+              <Box display="flex" alignItems="center">
+                <Box width="15px" height="15px" bg="blue.300" mr={2} borderRadius="md"></Box>
+                <Text color="#28271F">Open</Text>
+              </Box>
+            </Flex>
+            <Flex>
+              <Box
+                as="button"
+                p={2}
+                borderRadius={12}
+                bg="#FFD147"
+                color="#28271F"
+                mr={2}
+                minW={40}
+              >
+                ← Previous
+              </Box>
+              <Box
+                as="button"
+                p={2}
+                borderRadius={12}
+                bg="#FFD147"
+                color="#28271F"
+                minW={40}
+              >
+                Next →
+              </Box>
+            </Flex>
+          </Flex>
+        </Box>
       </SimpleGrid>
       <Grid
         templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
         templateRows={{ md: "1fr auto", lg: "1fr" }}
-        my='26px'
-        gap='24px'>
-        <BuiltByDevelopers
-          title={"Built by Developers"}
-          name={"Purity UI Dashboard"}
-          description={
-            "From colors, cards, typography to complex elements, you will find the full documentation."
-          }
-          image={
-            <Image
-              src={logoChakra}
-              alt='chakra image'
-              minWidth={{ md: "300px", lg: "auto" }}
-            />
-          }
+        my="-55px"
+        gap="24px"
+      >
+        <Box width="100%" height="600px">
+        <CustomCalendar
+          events={events.map(event => ({
+            ...event,
+            updateAttendStatus: (newStatus) => handleUpdateAttendStatus(event.eventId, newStatus),
+          }))}
         />
-        <WorkWithTheRockets
-          backgroundImage={peopleImage}
-          title={"Work with the rockets"}
-          description={
-            "Wealth creation is a revolutionary recent positive-sum game. It is all about who takes the opportunity first."
-          }
-        />
-      </Grid>
-      <Grid
-        templateColumns={{ sm: "1fr", lg: "1.3fr 1.7fr" }}
-        templateRows={{ sm: "repeat(2, 1fr)", lg: "1fr" }}
-        gap='24px'
-        mb={{ lg: "26px" }}>
-        <ActiveUsers
-          title={"Active Users"}
-          percentage={23}
-          chart={<BarChart />}
-        />
-        <SalesOverview
-          title={"Sales Overview"}
-          percentage={5}
-          chart={<LineChart />}
-        />
-      </Grid>
-      <Grid
-        templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
-        templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
-        gap='24px'>
-        <Projects
-          title={"Projects"}
-          amount={30}
-          captions={["Companies", "Members", "Budget", "Completion"]}
-          data={dashboardTableData}
-        />
-        <OrdersOverview
-          title={"Orders Overview"}
-          amount={30}
-          data={timelineData}
-        />
+        </Box>
       </Grid>
     </Flex>
   );
