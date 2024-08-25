@@ -16,6 +16,11 @@ The core vision of The Zubin Foundation is to enhance the quality of life for Ho
 
 Each element is well presented in a very complex documentation.
 
+**Class Diagram**
+
+![Class Diagram](assets/class.png)
+
+
 #### Special thanks
 
 During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
