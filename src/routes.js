@@ -27,10 +27,10 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/events-calendar",  // events calender page - redirect to sign up for and for check rsvp events
-    name: "Events Calendar",
+    path: "/events-dashboard",  // events calender page - redirect to sign up for and for check rsvp events
+    name: "Events Dashboard",
     icon: <HomeIcon color="inherit" />,
-    component: Dashboard,
+    component: EventsCalendar,
     layout: "/admin",
   },
   // {
