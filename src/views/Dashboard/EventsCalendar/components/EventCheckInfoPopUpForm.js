@@ -16,11 +16,13 @@ import {
     Flex,
     Select,
     useToast,
+    Image,
   } from "@chakra-ui/react";
   import React from "react";
-import background from "../../../../assets/img/modal.jpg"
-import qrcode from "../../../../assets/img/qrcode.png"
+import background from "../../../../assets/img/modal.jpg";
+import qrcode from "../../../../assets/img/qrcode.png";
 import { useState } from "react";
+import relevantImage from "../../../../assets/img/diwali1.jpg";
 
 
 const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, selectedTasks, handleSlotChange, handleTaskChange, handleSubmit, handleRSVPOut }) => {
@@ -53,21 +55,22 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                 p={6} 
                 maxW="120vh" 
                 minH = "90vh"
-                position="relative" 
-                _before={{
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url(${background})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    opacity: 0.7, 
-                    zIndex: -1, 
-                    borderRadius: "inherit", 
-                }}
+                // position="relative" 
+                // _before={{
+                //     content: '""',
+                //     position: "absolute",
+                //     top: 0,
+                //     left: 0,
+                //     width: "100%",
+                //     height: "100%",
+                //     backgroundImage: `url(${background})`,
+                //     backgroundSize: "cover",
+                //     backgroundPosition: "center",
+                //     opacity: 0.7, 
+                //     zIndex: -1, 
+                //     borderRadius: "inherit", 
+                // }}
+                borderRadius={12}
             >
                 {event.attendStatus === true && (
                     <Box bg="#FFD147" py={2} px={8} mt={5} borderRadius={12} ml={5} mr={5}>
@@ -82,14 +85,18 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                     </Box>
                 )}
                 <ModalHeader>
-                    <Text fontSize="3xl" fontWeight="bold" color="#a36b03" pb={0}>
-                        {event.eventName} - Attending!
-                    </Text>
-                    <Text fontSize="xl" color={textColor} pb={0}>
-                        {event.dateTimeStart} - {event.dateTimeEnd}
-                    </Text>
-                    <Text fontSize="xl" color="gray.500">
-                        {event.location} 
+                    <Flex justify="space-between" align="center">
+                        {/* Left side: Event details */}
+                        <Box flex="3">
+                        <Text fontSize="3xl" fontWeight="bold" color="#a36b03" pb={0}>
+                            {event.eventName} - Attending!
+                        </Text>
+                        <Text fontSize="xl" color={textColor} pb={0}>
+                            {event.dateTimeStart} - {event.dateTimeEnd}
+                        </Text>
+                        <Text fontSize="xl" color="gray.500">
+                            {event.location} 
+                        </Text>
                         <Button
                             as="a"
                             href="https://maps.app.goo.gl/C2KHvnXYBCUVcwPu8"
@@ -98,20 +105,31 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                             bg="#FFD147"
                             size="sm"
                             variant="solid"
-                            marginLeft={4}
+                            marginTop={3}
                             color="black"
-                        >
+                            >
                             View on Map
-                        </Button>
-                    </Text>
+                            </Button>
+                        </Box>
+
+                        {/* Right side: Image */}
+                        <Image 
+                        src={relevantImage} 
+                        alt="Event" 
+                        boxSize="150px"  // Adjust the size of the image
+                        objectFit="cover"  // Adjust the image fitting
+                        borderRadius="12px"
+                        flex="1"
+                        />
+                    </Flex>
                 </ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    <Box maxH="60vh" overflowY="auto">
+                    <Box maxH="60vh" overflowY="auto" mt="-3">
                         <Text fontSize="lg" color={textColor} mb={4}>
                             {event.eventDescription && (
                                 <Box mb={4}>
-                                    <StatLabel fontSize="xl" fontWeight="bold" pb={2}>
+                                    <StatLabel fontSize="xl" fontWeight="bold" pb={2} color="#a36b03">
                                         Event Details:
                                     </StatLabel>
                                     <Box mb={4} dangerouslySetInnerHTML={{ __html: event.eventDescription }} />
@@ -120,21 +138,21 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                         </Text>
                         { event.userType === "volunteer" &&
                             <Box ml={2}>
-                                <StatLabel fontSize='xl' fontWeight='bold' mt={4}>
+                                <StatLabel fontSize='xl' fontWeight='bold' mt={4} color="#a36b03">
                                     Training Videos:
                                 </StatLabel>
                                 <StatLabel fontSize='md' fontWeight='' mb={2}>
                                     Hey, thanks for helping us out! We look forward to having you. Before you get started, please watch the training materials below to get integrated into our system!
                                 </StatLabel>
                                 <Stack spacing={2} mt={2}>
-                                    {event.trainingMaterials.map((material, index) => (
+                                    {event.trainingMaterials && event.trainingMaterials.map((material, index) => (
                                         <Button
                                             key={index}
                                             as="a"
                                             href={material}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            colorScheme="blue"
+                                            bg="#FFD147"
                                             size="sm"
                                             variant="outline"
                                         >
@@ -144,7 +162,7 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                                 </Stack>
 
                                 {/* Selected Tasks and Time Slots */}
-                                <StatLabel fontSize='xl' fontWeight='bold' mt={4}>
+                                <StatLabel fontSize='xl' fontWeight='bold' mt={4} color="#a36b03">
                                     Assigned Tasks:
                                 </StatLabel>
                                 <StatLabel fontSize='md' fontWeight='' mt={0}>
@@ -152,7 +170,7 @@ const EventCheckInfoPopUpForm = ({ isOpen, onClose, event, selectedSlots, select
                                 </StatLabel>
 
                                 <Stack spacing={4} mt={2}>
-                                    {event.delegatedTasks.map((taskInfo, index) => (
+                                    {event.delegatedTasks && event.delegatedTasks.map((taskInfo, index) => (
                                     <Box key={index} p={4} border="1px" borderColor="gray.800" borderRadius="md">
                                         <Text fontSize="lg" fontWeight="bold">
                                             {taskInfo.task}

@@ -52,7 +52,7 @@ export default function CustomCalendar({ events }) {
               <Text fontSize="lg" mb={2}>
                 {day.getDate()}
               </Text>
-              {dayEvents.map((event, index) => (
+              {dayEvents && dayEvents.map((event, index) => (
                 <EventCard key={index} event={event} />
               ))}
             </Box>
