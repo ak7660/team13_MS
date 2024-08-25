@@ -8,7 +8,7 @@ import Profile from "views/Dashboard/Profile";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
 import TaskDelegation from "views/Dashboard/TaskDelegation";
-
+import Leaderboard from "views/Dashboard/Leaderboard";
 import {
   HomeIcon,
   StatsIcon,
@@ -32,6 +32,13 @@ var dashRoutes = [
     name: "Events Dashboard",
     icon: <HomeIcon color="inherit" />,
     component: EventsCalendar,
+    layout: "/admin",
+  },
+  {
+    path: "/leaderboard",  // task delegation
+    name: "Leaderboard",
+    icon: <StatsIcon color="inherit" />,
+    component: Leaderboard,
     layout: "/admin",
   },
   // {
@@ -76,6 +83,7 @@ var dashRoutes = [
         component: TaskDelegation,
         layout: "/admin",
       },
+
       {
         path: "/data-analytics-dashboard", // data analytics dashboard
         name: "Data Analytics Dashboard",

@@ -1,5 +1,5 @@
 // Chakra Imports
-import { Button, useColorModeValue } from "@chakra-ui/react";
+import { Button, useColorModeValue, Text } from "@chakra-ui/react";
 // Custom Icons
 import { SettingsIcon } from "components/Icons/Icons";
 import PropTypes from "prop-types";
@@ -9,7 +9,7 @@ export default function FixedPlugin(props) {
   const { secondary, onChange, onSwitch, fixed, ...rest } = props;
   // Chakra Color Mode
   let navbarIcon = useColorModeValue("gray.500", "gray.200");
-  let bgButton = useColorModeValue("white", "gray.600");
+  let bgButton = useColorModeValue("teal.200", "gray.600");
   let fixedDisplay = "flex";
   if (props.secondary) {
     fixedDisplay = "none";
@@ -20,7 +20,7 @@ export default function FixedPlugin(props) {
     <>
       <Button
         h="52px"
-        w="52px"
+        w="100px"
         onClick={props.onOpen}
         bg={bgButton}
         position="fixed"
@@ -31,13 +31,14 @@ export default function FixedPlugin(props) {
         borderRadius="50px"
         boxShadow="0 2px 12px 0 rgb(0 0 0 / 16%)"
       >
-        <SettingsIcon
+        <Text>AI</Text>
+        {/* <SettingsIcon
           cursor="pointer"
           ref={settingsRef}
           color={navbarIcon}
           w="20px"
           h="20px"
-        />
+        /> */}
       </Button>
     </>
   );
