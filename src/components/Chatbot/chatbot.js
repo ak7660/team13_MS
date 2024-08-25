@@ -101,7 +101,7 @@ const Chatbot = () => {
           className="chatbot-body"
           p="10px"
           bg="white"
-          maxH="500px"  // Increased height
+          maxH="700px"  // Increased height
           overflowY="auto"
           spacing="4"
           width="400px"  // Increased width
