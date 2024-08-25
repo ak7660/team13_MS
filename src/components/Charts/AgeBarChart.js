@@ -4,11 +4,11 @@ import ReactApexChart from 'react-apexcharts';
 class AgeBarChart extends React.Component {
   constructor(props) {
     super(props);
-
+    // Initialize state using props.series and props.categories if available, otherwise default to sample data
     this.state = {
       series: [{
         name: 'Participants',
-        data: [20, 12, 5, 8, 10, 8] // Example data for different age groups
+        data: props.series || [10, 20, 30, 40, 50, 60] // Default sample data
       }],
       options: {
         chart: {
@@ -24,7 +24,7 @@ class AgeBarChart extends React.Component {
             horizontal: false,
             columnWidth: '55%',
             endingShape: 'rounded'
-          },
+          }
         },
         dataLabels: {
           enabled: false
@@ -35,7 +35,7 @@ class AgeBarChart extends React.Component {
           colors: ['transparent']
         },
         xaxis: {
-          categories: ['18-25', '26-35', '36-45', '46-55', '56-65', '66+'],
+          categories: props.categories || ['18-25', '26-35', '36-45', '46-55', '56-65', '66+'], // Default categories
           title: {
             text: 'Age Groups'
           }
@@ -57,7 +57,7 @@ class AgeBarChart extends React.Component {
         },
         colors: ['#f2d069'],
         legend: {
-          fontSize: '10px', // Adjust the font size of the legend
+          fontSize: '10px',
           position: 'bottom'
         },
         responsive: [{
@@ -76,11 +76,42 @@ class AgeBarChart extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    // Update state if the series or categories props change
+    if (prevProps.series !== this.props.series) {
+      console.log('Series updated:', this.props.series);
+      this.setState({
+        series: [{
+          name: 'Participants',
+          data: this.props.series
+        }]
+      });
+    }
+    if (prevProps.categories !== this.props.categories) {
+      console.log('Categories updated:', this.props.categories);
+      this.setState(prevState => ({
+        options: {
+          ...prevState.options,
+          xaxis: {
+            ...prevState.options.xaxis,
+            categories: this.props.categories
+          }
+        }
+      }));
+    }
+  }
+
   render() {
     return (
       <div>
         <div id="chart">
-          <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={300} width={380} />
+          <ReactApexChart 
+            options={this.state.options} 
+            series={this.state.series} 
+            type="bar" 
+            height={300} 
+            width={380} 
+          />
         </div>
         <div id="html-dist"></div>
       </div>

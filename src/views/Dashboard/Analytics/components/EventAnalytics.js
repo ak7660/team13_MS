@@ -30,10 +30,10 @@ const EventAnalytics = ({ data }) => {
       <CardBody>
         <Flex direction="column" w="100%">
           <Flex w="100%">
-            <DemographicGraph />
+            <DemographicGraph ethnicitySeries={data.ethnicityData} ageSeries={data.ageData} />
           </Flex>
           <Divider py="20px" mb="20px" />
-          <FeedbackSection />
+          <FeedbackSection feedbacks={data.feedbacks} overallFeedback={data.overallFeedback} rating={data.rating} reviewDistribution={data.reviewDistribution} totalReviews={data.totalReviews}/>
         </Flex>
       </CardBody>
     </Card>

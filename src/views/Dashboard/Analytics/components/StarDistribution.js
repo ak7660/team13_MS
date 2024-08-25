@@ -14,9 +14,7 @@ import Card from "components/Card/Card";
 import Rating from "react-rating";
 import { FaStar } from "react-icons/fa";
 
-const StarDistribution = ({ reviewDistribution }) => {
-  const rating = 4.3;
-  const totalReviews = 44;
+const StarDistribution = ({ rating, totalReviews, reviewDistribution }) => {
 
   return (
     <VStack spacing={4}>
